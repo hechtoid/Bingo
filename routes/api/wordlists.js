@@ -20,11 +20,7 @@ router.post('/',
     (req, res) => {
       const newWordList = new WordList({
         name: req.body.name,
-        color: req.body.color,
-        hot: req.body.hot,
-        formal: req.body.formal,
-        wet: req.body.wet,
-        athleisure: req.body.athleisure,
+        words: req.body.words,
         user: req.user.id
       });
   
