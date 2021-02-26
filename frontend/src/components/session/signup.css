@@ -1,0 +1,88 @@
+
+.bg { 
+  /* The image used */
+  /* background-image: */
+    /* linear-gradient(black, black), */
+    
+    /* url('../garments/boxes/background_image.jpg'); */
+    /* filter: blur(1px); */
+
+  /* Full height */
+  height: 900px; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .logo {
+  text-align: center;
+  font-family: sans-serif;
+  color: #212527;
+  font-size: 40px;
+  margin: 0;
+} */
+
+.signup-form-box {
+  display: flex;
+  margin: auto; 
+  background: #a2a58e;
+  height: 525px;
+  width: 600px;
+  border-radius: 15px;
+  margin-top: 10%;
+}
+
+.signup-form {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: space-evenly; 
+}
+
+form {
+  margin: auto;
+}
+
+.input-field {
+  border-radius: 15px;
+  height: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.submit-btn {
+  border-radius: 15px;
+  height: 30px;
+  width: 300px;
+  background-color: #282a1a;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  background-color:#786f65;
+  /* color: black; */
+  transition: 0.3s;
+}
+
+.login-link {
+  padding-left: 10px;
+  text-decoration: none;
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: #05da66;
+}

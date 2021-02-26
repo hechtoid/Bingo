@@ -1,0 +1,103 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.modal-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 380px;
+    height: 420px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.modal-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.close-modal{
+    display: flex;
+    margin: 20px;
+    justify-content: flex-end;
+}
+
+.modal-title-box{
+    /* margin: 20px; */
+    font-family: sans-serif;
+    font-size: 28px;
+    
+}
+
+.modal-body-logout{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+
+.logout-button{
+  border-radius: 15px;
+  height: 30px;
+  width: 50%;
+  background-color: #212527;
+  padding: 7px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: 0.1s;
+
+}
+.logout-button:hover{
+  cursor:pointer;
+  transform: scale(1.03);
+  transition: 0.1s;
+}
+
+.close-modal-button{
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+  background-color: #212527;
+  color: white;
+  font-weight: bold;
+}
+.close-modal-button:hover{
+  cursor:pointer;
+}
+
+.member-since{
+  font-size: 13px;
+}
+.modal-pic{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.modal-pic img{
+  width: 234px;
+  height: 234px;
+  margin-bottom: 25px;
+  margin-top: -25px;
+}

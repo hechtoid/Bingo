@@ -1,0 +1,25 @@
+.profile-page{
+  height: 100%;
+  width: 100%;
+}
+
+.wardrobe{
+  padding-top: 25px;
+  /* margin-bottom: -50px; */
+}
+.flex-profile-page{
+  position: relative;
+  top: -100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  
+}
+
+.pants > .garment-box-page {
+  border-left: 3px solid white;
+}
+
+.profile-page *{
+}

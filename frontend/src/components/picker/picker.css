@@ -1,0 +1,260 @@
+* {
+    outline: none; 
+} 
+
+
+.picker-page {
+  /* background-image: */
+    /* linear-gradient(black, black),
+     */
+    /* url('../garments/boxes/background_image.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-blend-mode: saturation;
+  /* position: relative;
+  top:0;
+  bottom:0; */
+  height: 100%;
+  min-height: 100vh;
+
+  
+}
+
+/* .picker-page-overlay{
+  position: absolute;
+  background-color: rgba(20, 20, 20, 0.8);
+  top:0;
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  pointer-events:none;
+  z-index: 5;
+} */
+
+#link-to-outfits:hover{
+  cursor: pointer;
+  color: lightgray;
+}
+#link-to-outfits{
+  color:white;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.link-to-outfits{
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 36px;
+  text-decoration-line: none;
+  margin-bottom: 50px;
+}
+.picker-radios {
+  padding-top: 50px;
+  text-align: center;
+  border: 2px solid black;
+  width: 300px;
+  background-color: #646656c4;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: fixed;
+  /* height: calc(100vh - 91px); */
+  height: 70vh;
+}
+
+.picker-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+.top-item {
+  height: 300px;
+  width: 300px;
+}
+
+.show-img {
+  height: 80%;
+  width: 50%;
+}
+
+.outfit-input{
+  display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+ margin: 10% auto;
+ height: 30px;
+ width: 200px;
+ border-radius: 15px;
+ text-indent: 10%;
+ font-size: 20px;
+}
+
+.outfit-save-btn {
+  border-radius: 15px;
+  height: 30px;
+  width: 50%;
+  background-color: #3b3c32;
+  padding: 7px;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: 0.1s;
+}
+.outfit-save-btn:hover{
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #262911;
+}
+
+/* Pickr main box styling */
+.outfit-generator-container {
+  margin-left: 350px;
+  display: flex;
+  flex-direction: row;
+}
+
+.outfit-selector-top-bot{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  text-align: -webkit-center;
+}
+
+ .picker-menu{
+  width: 140px;
+  height: 250px;
+  /* background-color: transparent; */
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  background-color: #646656c4
+}
+
+ .picker-menu option {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.outfit-selector-outfits{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  width: 33%;
+  margin: 0 auto;
+}
+
+.top-item{
+  align-self: center;
+  /* margin-left: -50px; */
+  text-align: center;
+}
+
+.bottom-item{
+  align-self: center;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.outfit-selector-attributes{
+  height: 100vh;
+  width: 33%;
+}
+.outfit-selector-attributes h3:first-child {
+  text-decoration: underline;
+  margin: 0;
+}
+
+.outfit-selector-attributes h3 {
+  color: #282a1a;
+  font-family: sans-serif;
+  font-size: 29px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.outfit-selector-attributes p{
+  color: #282a1a;
+  font-size: 22px;
+  text-align: center;
+  font-family: sans-serif;
+  /* letter-spacing: 2px; */
+}
+
+ /* .show-container{
+  display: flex;
+  margin-left: 100px;
+}
+
+.picker-radios > label{
+      padding-right: 50px;
+
+} */
+/* .picker-picker{
+  display: flex;
+  margin-left: 100px;
+  padding-right: 100px;
+} */
+
+/* .asshole-div {
+  margin: 0;
+  padding: 0;
+} */
+/* .picker-menu{
+  padding: 30px;
+  margin-right: 300px;
+}
+select{
+    overflow:auto;
+}  */
+
+h2 {
+  color: #282a1a;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3c3c32; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3c3c32ea; 
+}
+
+.top-attributes {
+  margin: 42px auto;
+  margin-bottom: 75px;
+}
+
+.pant-attributes {
+  margin-top: 50px;
+}
+
+.pickr-title {
+  font-weight: 600;
+  font-size: 20px;
+}
