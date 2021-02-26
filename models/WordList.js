@@ -9,9 +9,12 @@ const WordListSchema = new Schema({
   name: {
     type: String
   },
+  unlisted: {
+    type: Boolean
+  },
   words: {
     type: Array
   }
 });
 
-module.exports = WordList = mongoose.model('wordlist', WordListSchema);
+module.exports = WordList = mongoose.model('wordlists', WordListSchema);
