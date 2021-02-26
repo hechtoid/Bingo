@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeUserModal } from './../../actions/ui_actions';
 import { logout } from '../../actions/session_actions';
-import './usermodal.css';
 import { dateFromObjectId } from '../../util/mongo_date'
 import profilepic from '../nav/profileuser.jpg'
 

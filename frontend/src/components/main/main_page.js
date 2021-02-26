@@ -1,5 +1,4 @@
 import React from 'react';
-import './main.css'
 import LoginFormContainer from '../session/login_form_container'
 
 class MainPage extends React.Component {

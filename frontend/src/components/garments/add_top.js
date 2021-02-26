@@ -1,6 +1,5 @@
 import React from 'react';
-import GarmentBox from './boxes/garment_box';
-import './add_pant.css';
+
 class AddTop extends React.Component {
   constructor(props) {
       super(props);
@@ -150,23 +149,11 @@ class AddTop extends React.Component {
         <br />
         <div className="garment-container">
           <div className="demo-item-container">
-          <div className="demo-item">
-            <GarmentBox
-              name={this.state.name}
-              color={this.state.color}
-              type="top"
-            />
-          </div>
           </div>
           <br/>
           {this.props.tops.map(top => (
             <div className="garment-item" onClick={this.itemModalHandler.bind(this, top, "top")} key={top._id}>
-              <GarmentBox
-                key={top._id}
-                name={top.name}
-                color={top.color}
-                type="top"
-              />
+              
             </div>
           ))}
         </div>
