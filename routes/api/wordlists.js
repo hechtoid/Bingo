@@ -3,15 +3,14 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const Top = require('../../models/Top');
+const WordList = require('../../models/WordList');
 
-let masterID = "5ebf0b16b5ce5b0017463aa0" 
 router.get('/user/:user_id', (req, res) => {
-    Top.find({user: { $in: [req.params.user_id, masterID] } })
+    Wordlist.find({user: { $in: [req.params.user_id] } })
         .sort({ date: -1 })
-        .then(tops => res.json(tops))
+        .then(wordlists => res.json(wordlists))
         .catch(err =>
-            res.status(404).json({ notopsfound: 'No Tops found on that user' }
+            res.status(404).json({ nowordlistsfound: 'No WordLists found on that user' }
         )
     );
 });
@@ -19,7 +18,7 @@ router.get('/user/:user_id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      const newTop = new Top({
+      const newWordList = new WordList({
         name: req.body.name,
         color: req.body.color,
         hot: req.body.hot,
@@ -29,7 +28,7 @@ router.post('/',
         user: req.user.id
       });
   
-      newTop.save().then(top => res.json(top));
+      newWordList.save().then(wordlist => res.json(wordlist));
     }
   );
 
