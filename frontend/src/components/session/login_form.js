@@ -87,7 +87,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form-box">
-        <h1 className="logo">Outfittr</h1> 
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <br/>
@@ -96,7 +95,7 @@ class LoginForm extends React.Component {
                 id="handle"
                 value={this.state.handle}
                 onChange={this.update('handle')}
-                placeholder="Email"
+                placeholder="Handle"
               />
             <br></br>
               <input type="password"

@@ -7,9 +7,11 @@ import SignupFormContainer from './session/signup_form_container';
 import NewWordListContainer from './wordlists/new_word_list_container';
 import WordListsContainer from './wordlists/word_lists_container';
 
+import './app.css'
+
 
 const App = () => (
-  <div>
+  <div className="app">
     <link href="https://fonts.googleapis.com/css?family=Timmana&display=swap" rel="stylesheet"></link>
     <main className="main" >
       <Switch>

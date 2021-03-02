@@ -10,7 +10,7 @@ class NewWordList extends React.Component {
         unlisted: false,
         words: []      
       }
-      document.title = 'New Word List - Internet Bingo'
+      document.title = 'New WordList - Internet Bingo'
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
   } 
