@@ -1,8 +1,9 @@
-import { getTops, getUserTops, writeTop } from '../util/top_api_util';
+import { getTops, getUserTops, writeTop, postWordList } from '../util/top_api_util';
 
 export const RECEIVE_TOPS = "RECEIVE_TOPS";
 export const RECEIVE_USER_TOPS = "RECEIVE_USER_TOPS";
 export const RECEIVE_NEW_TOP = "RECEIVE_NEW_TOP";
+export const RECEIVE_NEW_WORD_LIST = "RECEIVE_NEW_WORD_LIST";
 
 export const receiveTops = tops => ({
   type: RECEIVE_TOPS,
@@ -17,6 +18,10 @@ export const receiveUserTops = tops => ({
 export const receiveNewTop = top => ({
   type: RECEIVE_NEW_TOP,
   top
+})
+export const receiveNewWordList = wordList => ({
+  type: RECEIVE_NEW_WORD_LIST,
+  wordList
 })
 
 export const fetchTops = () => dispatch => (
@@ -36,3 +41,10 @@ export const composeTop = data => dispatch => (
     .then(top => dispatch(receiveNewTop(top)))
     .catch(err => console.log(err))
 );
+
+export const saveWordList = data => dispatch => (
+  postWordList(data)
+    .then(wordList => dispatch(receiveNewWordList(wordList)))
+    .catch(err => console.log(err))
+);
+

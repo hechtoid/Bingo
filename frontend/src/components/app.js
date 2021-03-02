@@ -4,8 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import MainPage from './main/main_page';
 import SignupFormContainer from './session/signup_form_container';
 
-import AddTopContainer from './garments/add_top_container';
-import WordListsContainer from './wordlists/word_lists_container';
+import NewWordListsContainer from './wordlists/new_word_list_container';
 
 
 const App = () => (
@@ -15,8 +14,7 @@ const App = () => (
       <Switch>
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute exact path="/wordlists" component={WordListsContainer} />
-        <ProtectedRoute exact path="/new_tops" component={AddTopContainer} />
+        <ProtectedRoute exact path="/wordlists/new" component={NewWordListsContainer} />
       </Switch>
     </main>
   </div>

@@ -11,3 +11,6 @@ export const getUserTops = id => {
 export const writeTop = data => {
   return axios.post('/api/tops/', data)
 }
+export const postWordList = data => {
+  return axios.post('/api/wordlists/', data)
+}

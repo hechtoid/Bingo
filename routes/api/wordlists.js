@@ -21,7 +21,7 @@ router.post('/',
       const newWordList = new WordList({
         name: req.body.name,
         unlisted: req.body.unlisted,
-	words: req.body.words,
+	      words: req.body.words,
         user: req.user.id
       });
   
