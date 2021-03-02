@@ -7,7 +7,7 @@ class LoginForm extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
+      handle: '',
       password: '',
       errors: {}
     };
@@ -21,15 +21,15 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     const demoUser = {
-      email: 'fashionisto@gmail.com',
-      password: 'password123'
+      handle: 'tester',
+      password: 'tester'
     };
 
     const sleep = ms => new Promise(res => setTimeout(res, ms));
 
-    document.getElementById("email").focus();
-    for (let i = 1; i <= demoUser.email.length; i++) {
-      this.setState({ email: demoUser.email.substr(0, i) });
+    document.getElementById("handle").focus();
+    for (let i = 1; i <= demoUser.handle.length; i++) {
+      this.setState({ handle: demoUser.handle.substr(0, i) });
       await sleep(50);
     }
 
@@ -65,7 +65,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     let user = {
-      email: this.state.email,
+      handle: this.state.handle,
       password: this.state.password
     };
 
@@ -93,9 +93,9 @@ class LoginForm extends React.Component {
             <br/>
               <input type="text"
                 className="input-field"
-                id="email"
-                value={this.state.email}
-                onChange={this.update('email')}
+                id="handle"
+                value={this.state.handle}
+                onChange={this.update('handle')}
                 placeholder="Email"
               />
             <br></br>
