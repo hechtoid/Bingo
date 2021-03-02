@@ -1,25 +1,19 @@
 import { connect } from 'react-redux';
-import { composeTop } from '../../actions/top_actions';
-import { fetchUserTops } from '../../actions/top_actions';
-import AddTop from './word_lists';
-import { openItemModal } from '../../actions/ui_actions';
+import { fetchUserWordLists } from '../../actions/word_list_actions';
+import WordLists from './word_lists';
 
 
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.user,
-    tops: Object.values(state.tops.user),
-    newTop: state.tops.new
+    lists: Object.values(state.lists.user),
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    composeTop: data => dispatch(composeTop(data)),
-    fetchUserTops: id => dispatch(fetchUserTops(id)),
-    openItemModal: (item, type) => dispatch(openItemModal(item, type))
-
+    fetchUserWordLists: id => dispatch(fetchUserWordLists(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTop);
+export default connect(mapStateToProps, mapDispatchToProps)(WordLists);

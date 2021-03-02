@@ -6,7 +6,7 @@ const passport = require('passport');
 const WordList = require('../../models/WordList');
 
 router.get('/user/:user_id', (req, res) => {
-    Wordlist.find({user: { $in: [req.params.user_id] } })
+    WordList.find({user: { $in: [req.params.user_id] } })
         .sort({ date: -1 })
         .then(wordlists => res.json(wordlists))
         .catch(err =>

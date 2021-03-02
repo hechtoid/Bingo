@@ -1,7 +1,7 @@
 import React from 'react';
 import './word_list.css'
 
-class WordLists extends React.Component {
+class NewWordList extends React.Component {
   constructor(props) {
       super(props);
 
@@ -17,15 +17,19 @@ class WordLists extends React.Component {
 
   saveWordList(e) {
     e.preventDefault()
-    this.props.saveWordList(this.state);
-    this.props.history.push('/wordlists')
+    if (this.state.words.length>5){
+      this.props.saveWordList(this.state);
+      this.props.history.push('/wordlists')
+    }
   }
   handleSubmit(e) {
     e.preventDefault()
-    this.setState({
-      words: [...this.state.words, e.currentTarget.firstChild.value]
-    })
-    e.currentTarget.firstChild.value = ''
+    if (e.currentTarget.firstChild.value.length>0){
+      this.setState({
+        words: [...this.state.words, e.currentTarget.firstChild.value]
+      })
+      e.currentTarget.firstChild.value = ''
+    }
   }
 
 
@@ -33,7 +37,15 @@ class WordLists extends React.Component {
   render() {
     return (
       <div className="new-wordlist">
-        <div className="save-button" onClick={this.saveWordList}>SAVE</div>
+        <div 
+            className={
+              this.state.words.length>5
+              ? "save-button"
+              : "save-button-disabled"
+              } 
+            onClick={this.saveWordList}>
+          SAVE
+        </div>
         <ol className="wordlist">
           {this.state.words.map( (word,idx) => <li key={idx}>{word}</li>)}
         </ol>
@@ -46,4 +58,4 @@ class WordLists extends React.Component {
   }
 }
 
-export default WordLists;
+export default NewWordList;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveWordList } from '../../actions/top_actions';
+import { saveWordList } from '../../actions/word_list_actions';
 import NewWordList from './new_word_list';
 
 
