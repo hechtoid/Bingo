@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './word_list.css'
 
 class NewWordList extends React.Component {
@@ -13,8 +15,11 @@ class NewWordList extends React.Component {
       document.title = 'New WordList - Internet Bingo'
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
+      this.deleteWordAt = this.deleteWordAt.bind(this)
   } 
 
+  selectID(e) { e.target.select()}
+  
   saveWordList(e) {
     e.preventDefault()
     if (this.state.words.length>5){
@@ -31,7 +36,15 @@ class NewWordList extends React.Component {
       e.currentTarget.firstChild.value = ''
     }
   }
-
+  deleteWordAt(idx) {
+    return e => {
+      let words = this.state.words
+      words.splice(idx, 1)
+      this.setState({
+        words
+      })
+    }
+  }
   updateName() {
     return e => this.setState({
       name: e.currentTarget.value
@@ -46,27 +59,49 @@ class NewWordList extends React.Component {
 
 
   render() {
+    let words = this.state.words.map( (word,idx) => { 
+      return ( 
+        <li key={idx}>
+          #{idx+1}:{word} 
+          <span 
+            onClick={this.deleteWordAt(idx)} 
+            aria-label="delete" title="delete" role="img"
+          > 🗑️ </span>
+        </li>
+      )
+    })
     return (
       <div className="new-wordlist">
-        <input type="text" value={this.state.name} onChange={this.updateName()}></input>
+      <div>
+        <input 
+          type="text" 
+          value={this.state.name} 
+          onChange={this.updateName()} 
+          onFocus={this.selectID}>
+        </input>
         <div 
             className={
-              this.state.words.length>5
+              this.state.words.length > 5
               ? "save-button"
               : "save-button-disabled"
-              } 
+            } 
             onClick={this.saveWordList}>
           SAVE
         </div>
         <div className={this.state.words.length>5?"hidden":"disclaimer"}>Lists have a strict minimum of 24 words.</div>
         <ol className="wordlist">
-          {this.state.words.map( (word,idx) => <li key={idx}>{word}</li>)}
+          {words}
         </ol>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="add new word"></input>
           <input type="submit" value="Add to List" />
         </form>
-        <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
+        <label><input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />Private List</label>
+      </div>
+
+      <Link to='/wordlists'>
+          <div>Back to List of Lists</div>
+      </Link>
       </div>
     )
   }
