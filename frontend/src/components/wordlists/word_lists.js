@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './word_list.css'
 
 function WordLists(props) {
@@ -11,19 +11,27 @@ function WordLists(props) {
       }, []);
         return (
             <div className="wordlists">
+                
+                <div className="wordlists-panel">
+                    {props.lists.map( (list,idx) => {
+                        return(
+                            <ol key={idx}>
+                                <Link to={`/wordlists/${list._id}`}>
+                                    <h3>{list.name}</h3>
+                                </Link>
+                                <div>
+                                {list.words.map( (word,idx) => <li key={idx}>#{idx+1}: {word}</li> )}
+                                </div>
+                                <div onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
+                            </ol>
+                        )
+                    })}
+                </div>
                 <Link to="/wordlists/new">
                     <div>
                         New WordList
                     </div>
                 </Link>
-                {props.lists.map( (list,idx) => {
-                    return(
-                        <ol key={idx} onClick={()=>props.removeWordList(list._id)}>
-                            <h3>{list.name}</h3>
-                            {list.words.map( (word,idx) => <li key={idx}>{word}</li> )}
-                        </ol>
-                    )
-                })}
             </div>
         )
     
