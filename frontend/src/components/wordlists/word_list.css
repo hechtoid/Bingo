@@ -30,14 +30,21 @@ h3:hover {
 .wordlists ol a{
     margin: 5px;
 }
-.wordlists ol li{
-    margin: 5px 10px;
-}
 .wordlists ol div {
     overflow-x:hidden;
     overflow-y:auto;
 }
-.wordlists ol div:last-child {
+
+.wordlists ol li{
+    margin: 5px 10px;
+    display: flex;
+}
+.wordlists ol li div{
+    overflow: auto;
+    /* width: 50%; */
+}
+
+.wordlists .delete{
     color: red;
     font-weight: 900;
     font-family: sans-serif;

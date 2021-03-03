@@ -20,9 +20,9 @@ function WordLists(props) {
                                     <h3>{list.name}</h3>
                                 </Link>
                                 <div>
-                                {list.words.map( (word,idx) => <li key={idx}>#{idx+1}: {word}</li> )}
+                                {list.words.map( (word,idx) => <li key={idx}>#{idx+1}: <div>{word}</div></li> )}
                                 </div>
-                                <div onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
+                                <div className="delete" onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
                             </ol>
                         )
                     })}
