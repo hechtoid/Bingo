@@ -16,6 +16,7 @@ import merge from 'lodash/merge';
         console.log(`removing ${action.id}`)
         newState = merge({}, state);
         newState.user = newState.user.filter( list => list._id !== action.id)
+        return newState;
       default:
         return state;
     }

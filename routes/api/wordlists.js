@@ -35,8 +35,8 @@ router.delete('/:list_id',
     passport.authenticate('jwt', { session: false }),    
     (req, res) => {
       WordList.deleteOne({ _id: req.params.list_id })
-      .then( res => res.status(204))
-      // .catch( err => res.status(500).json({no: 'no'}))
+      .then( () => res.status(204).json({}))
+      .catch( error => res.status(500).json({error}))
     }
 );
 
