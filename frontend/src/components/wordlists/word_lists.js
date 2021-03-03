@@ -19,7 +19,7 @@ function WordLists(props) {
                 {props.lists.map( (list,idx) => {
                     return(
                         <ol key={idx} onClick={()=>props.removeWordList(list._id)}>
-                            #{idx+1}
+                            <h3>{list.name}</h3>
                             {list.words.map( (word,idx) => <li key={idx}>{word}</li> )}
                         </ol>
                     )
