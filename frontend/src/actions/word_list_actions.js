@@ -2,6 +2,7 @@ import { getUserWordLists, postWordList, deleteWordList } from '../util/word_lis
 
 export const RECEIVE_USER_WORD_LISTS = "RECEIVE_USER_WORD_LISTS";
 export const RECEIVE_NEW_WORD_LIST = "RECEIVE_NEW_WORD_LIST";
+export const REMOVE_WORD_LIST = "REMOVE_WORD_LIST";
 
 export const receiveUserWordLists = lists => ({
   type: RECEIVE_USER_WORD_LISTS,
@@ -13,6 +14,11 @@ export const receiveNewWordList = wordList => ({
   wordList
 })
 
+export const removeOldWordList = id => ({
+  type: REMOVE_WORD_LIST,
+  id
+})
+
 export const fetchUserWordLists = id => dispatch => (
   getUserWordLists(id)
     .then(lists => dispatch(receiveUserWordLists(lists)))
@@ -21,11 +27,12 @@ export const fetchUserWordLists = id => dispatch => (
 
 export const saveWordList = data => dispatch => (
   postWordList(data)
+    .then(res => dispatch(receiveNewWordList(res)))
     .catch(err => console.log(err))
 );
 
 export const removeWordList = id => dispatch => (
   deleteWordList(id)
+  .then( id => dispatch(removeOldWordList(id)))
   .catch(err => console.log(err))
 );
-
