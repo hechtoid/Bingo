@@ -5,6 +5,9 @@ const passport = require('passport');
 
 const WordList = require('../../models/WordList');
 
+router.get("/", (req, res) => res.send("Hello Word!!"));
+
+
 router.get('/user/:user_id', (req, res) => {
     WordList.find({user: { $in: [req.params.user_id] } })
         .sort({ date: -1 })
@@ -24,9 +27,19 @@ router.post('/',
 	      words: req.body.words,
         user: req.user.id
       });
-  
       newWordList.save().then(wordlist => res.json(wordlist));
     }
-  );
+);
+
+router.delete('/:list_id',
+    passport.authenticate('jwt', { session: false }),    
+    (req, res) => {  
+      WordList.deleteOne({ _id: req.params.list_id })
+      .then( () => res.send("DELETED"))
+      .catch( () => res.send("NOT DELETED"))
+    }
+);
+
+
 
   module.exports = router;

@@ -25,7 +25,7 @@ class WordLists extends React.Component {
                 </Link>
                 {this.props.lists.map( (list,idx) => {
                     return(
-                        <ol key={idx}>
+                        <ol key={idx} onClick={()=>this.props.removeWordList(list._id)}>
                             #{idx+1}
                             {list.words.map( (word,idx) => <li key={idx}>{word}</li> )}
                         </ol>

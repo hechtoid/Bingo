@@ -1,4 +1,4 @@
-import { getUserWordLists, postWordList } from '../util/word_list_api_util';
+import { getUserWordLists, postWordList, deleteWordList } from '../util/word_list_api_util';
 
 export const RECEIVE_USER_WORD_LISTS = "RECEIVE_USER_WORD_LISTS";
 export const RECEIVE_NEW_WORD_LIST = "RECEIVE_NEW_WORD_LIST";
@@ -22,5 +22,10 @@ export const fetchUserWordLists = id => dispatch => (
 export const saveWordList = data => dispatch => (
   postWordList(data)
     .catch(err => console.log(err))
+);
+
+export const removeWordList = id => dispatch => (
+  deleteWordList(id)
+  .catch(err => console.log(err))
 );
 

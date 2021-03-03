@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserWordLists } from '../../actions/word_list_actions';
+import { fetchUserWordLists, removeWordList } from '../../actions/word_list_actions';
 import WordLists from './word_lists';
 
 
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserWordLists: id => dispatch(fetchUserWordLists(id)),
+    fetchUserWordLists: userID => dispatch(fetchUserWordLists(userID)),
+    removeWordList: wordlistID => dispatch(removeWordList(wordlistID))
   };
 };
 

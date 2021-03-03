@@ -8,5 +8,6 @@ export const getUserWordLists = id => {
 export const postWordList = data => {
   return axios.post('/api/wordlists/', data)
 }
-
-
+export const deleteWordList = id => {
+  return axios.delete(`/api/wordlists/${id}`)
+}
