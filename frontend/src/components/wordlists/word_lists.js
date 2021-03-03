@@ -8,7 +8,7 @@ class WordLists extends React.Component {
         this.state = {
             wordlists: []
         }
-        document.title = "User's WordLists - Internet Bingo"
+        document.title = `${this.props.currentUser.handle}'s WordLists - Internet Bingo`
        
     }
     componentDidMount() {
@@ -18,7 +18,11 @@ class WordLists extends React.Component {
     render() {
         return (
             <div className="wordlists">
-                <Link to="/wordlists/new"><div>New WordList</div></Link>
+                <Link to="/wordlists/new">
+                    <div>
+                        New WordList
+                    </div>
+                </Link>
                 {this.props.lists.map( (list,idx) => {
                     return(
                         <ol key={idx}>

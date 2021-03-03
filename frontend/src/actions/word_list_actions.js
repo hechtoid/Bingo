@@ -21,7 +21,6 @@ export const fetchUserWordLists = id => dispatch => (
 
 export const saveWordList = data => dispatch => (
   postWordList(data)
-    .then(wordList => dispatch(receiveNewWordList(wordList)))
     .catch(err => console.log(err))
 );
 
