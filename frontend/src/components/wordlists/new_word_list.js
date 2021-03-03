@@ -37,6 +37,11 @@ class NewWordList extends React.Component {
       name: e.currentTarget.value
     });
   }
+  updateListed() {
+    return e => this.setState({
+      unlisted: e.currentTarget.checked
+    })
+  }
 
 
 
@@ -61,6 +66,7 @@ class NewWordList extends React.Component {
           <input type="text" placeholder="add new word"></input>
           <input type="submit" value="Add to List" />
         </form>
+        <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
       </div>
     )
   }
