@@ -6,7 +6,7 @@ class NewWordList extends React.Component {
       super(props);
 
       this.state = {
-        name: 'My New Word List',
+        name: `My New Word List ${(new Date).toLocaleDateString()}`,
         unlisted: false,
         words: []      
       }

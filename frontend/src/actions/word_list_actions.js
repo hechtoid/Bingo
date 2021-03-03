@@ -33,8 +33,6 @@ export const saveWordList = data => dispatch => (
 
 export const removeWordList = id => dispatch => (
   deleteWordList(id)
-  .then( res => console.log(res))
   .then( () => dispatch(removeOldWordList(id)))
   .catch(err => console.log(err))
-  
 );

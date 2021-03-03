@@ -1,21 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './word_list.css'
 
-class WordLists extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            wordlists: []
-        }
-        document.title = `${this.props.currentUser.handle}'s WordLists - Internet Bingo`
-       
-    }
-    componentDidMount() {
-        this.props.fetchUserWordLists(this.props.currentUser.id)
-    }
-
-    render() {
+function WordLists(props) {
+    const loadUserWordLists = () => props.fetchUserWordLists(props.currentUser.id)
+    useEffect(() => loadUserWordLists, [])
         return (
             <div className="wordlists">
                 <Link to="/wordlists/new">
@@ -23,9 +12,9 @@ class WordLists extends React.Component {
                         New WordList
                     </div>
                 </Link>
-                {this.props.lists.map( (list,idx) => {
+                {props.lists.map( (list,idx) => {
                     return(
-                        <ol key={idx} onClick={()=>this.props.removeWordList(list._id)}>
+                        <ol key={idx} onClick={()=>props.removeWordList(list._id)}>
                             #{idx+1}
                             {list.words.map( (word,idx) => <li key={idx}>{word}</li> )}
                         </ol>
@@ -33,7 +22,7 @@ class WordLists extends React.Component {
                 })}
             </div>
         )
-    }
+    
 }
 
 export default WordLists;
