@@ -19,22 +19,16 @@
     align-items: center;
 
 }
-.new-wordlist ol {
-    border: 1px solid black;
-    min-height: 20px;
-    min-width: 100px;
+
+.new-wordlist > input{
+    font-size: 24px;
+    width: 90%;
+    padding: 5px 10px;
 }
-.new-wordlist ol li {
-    margin: 3px 10px
-}
-.new-wordlist form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.new-wordlist form input {
-    margin: 5px;
+.disclaimer {
+    font-style: oblique;
+    font-size: 12px;
+    font-family: sans-serif;
 }
 .save-button {
     color: green;
@@ -65,4 +59,21 @@
     display: flex;
     justify-content: center;
     user-select: none;
+}
+.new-wordlist ol {
+    border: 1px solid black;
+    min-height: 20px;
+    min-width: 100px;
+}
+.new-wordlist ol li {
+    margin: 3px 10px
+}
+.new-wordlist form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.new-wordlist form input {
+    margin: 5px;
 }

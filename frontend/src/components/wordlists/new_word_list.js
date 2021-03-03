@@ -6,7 +6,7 @@ class NewWordList extends React.Component {
       super(props);
 
       this.state = {
-        name: `My New Word List ${(new Date).toLocaleDateString()}`,
+        name: `${props.currentUser.handle}'s New Word List ${new Date().toLocaleDateString()}`,
         unlisted: false,
         words: []      
       }
@@ -32,11 +32,18 @@ class NewWordList extends React.Component {
     }
   }
 
+  updateName() {
+    return e => this.setState({
+      name: e.currentTarget.value
+    });
+  }
+
 
 
   render() {
     return (
       <div className="new-wordlist">
+        <input type="text" value={this.state.name} onChange={this.updateName()}></input>
         <div 
             className={
               this.state.words.length>5
@@ -46,6 +53,7 @@ class NewWordList extends React.Component {
             onClick={this.saveWordList}>
           SAVE
         </div>
+        <div className={this.state.words.length>5?"hidden":"disclaimer"}>Lists have a strict minimum of 24 words.</div>
         <ol className="wordlist">
           {this.state.words.map( (word,idx) => <li key={idx}>{word}</li>)}
         </ol>

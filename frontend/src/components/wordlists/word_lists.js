@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import './word_list.css'
 
 function WordLists(props) {
-    const loadUserWordLists = () => props.fetchUserWordLists(props.currentUser.id)
-    useEffect(() => loadUserWordLists, [])
+    useEffect(() => {
+        async function fetchData() {
+          await props.fetchUserWordLists(props.currentUser.id)
+        }
+        fetchData();
+      }, []);
         return (
             <div className="wordlists">
                 <Link to="/wordlists/new">
