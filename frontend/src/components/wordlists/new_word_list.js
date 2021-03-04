@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Word from './word'
+import Phrase from './phrase'
 
 import './word_list.css'
 
@@ -62,9 +62,9 @@ class ComposePhraseList extends React.Component {
 
 
   render() {
-    let words = this.state.words.map( (word,idx) => { 
+    let words = this.state.words.map( (phrase,idx) => { 
       return ( 
-        <Word word={word} idx={idx} delete={this.deleteWordAt(idx)}/>
+        <Phrase phrase={phrase} idx={idx} delete={this.deleteWordAt(idx)}/>
       )
     })
     return (

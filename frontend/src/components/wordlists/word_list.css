@@ -18,8 +18,8 @@
 h3:hover {
     cursor: pointer;
 }
-.wordlists ol {
-    min-width: 250px;
+.wordlists ul {
+    min-width: 400px;
     border: 1px solid gray;
     margin: 5px;
     /* padding: 5px; */
@@ -27,19 +27,19 @@ h3:hover {
     flex-direction: column;
     justify-content: space-between;
 }
-.wordlists ol a{
+.wordlists ul a{
     margin: 5px;
 }
-.wordlists ol div {
+.wordlists ul div {
     overflow-x:hidden;
     overflow-y:auto;
 }
 
-.wordlists ol li{
+.wordlists ul li{
     margin: 5px 10px;
     display: flex;
 }
-.wordlists ol li div{
+.wordlists ul li div{
     overflow: auto;
     /* width: 50%; */
 }
@@ -117,13 +117,13 @@ h3:hover {
     justify-content: center;
     user-select: none;
 }
-.new-wordlist ul {
+ul {
     border: 1px solid black;
     min-height: 20px;
     min-width: 50%;
     padding: 0;
 }
-.new-wordlist ul li {
+ul li {
     margin: 5px auto;
     /* padding: 2px; */
     display: flex;
@@ -132,22 +132,19 @@ h3:hover {
     width: 90%;
     border-bottom: 3px solid transparent;
 }
-.new-wordlist ul li:hover {
+ul li:hover {
     border-bottom: 3px solid lightsteelblue;
 }
 
-.new-wordlist ul li button {
-    margin-bottom: 3px;
+ul li button {
+    margin: 0 5px 3px 0;
 }
 
-.new-wordlist ul li button:hover {
+ul li button:hover {
     cursor: pointer;
 }
-.new-wordlist ul li button div {
+ul li button div {
     margin: 3px;
-}
-.new-wordlist ul li button:first-child {
-    margin-right: 5px;
 }
 .new-wordlist form {
     display: flex;
