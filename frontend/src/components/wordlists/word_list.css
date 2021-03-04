@@ -6,7 +6,7 @@
     font-weight: 900;
     color: blue;
     border-radius: 5px;
-    width: 500px;
+    width: 50%;
     padding: 5px 15px;
 }
 
@@ -56,7 +56,7 @@ h3:hover {
     justify-content: center;
     width: 60%;
 }
-.wordlists ol div:last-child:hover {
+.wordlists .delete:hover {
     cursor: pointer;
 }
 
@@ -69,7 +69,7 @@ h3:hover {
 .new-wordlist > div {
     border: 1px solid gray;
     border-radius: 10px;
-    width: 50%;
+    min-width: 50%;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,7 @@ h3:hover {
     align-items: center;
 }
 
-.new-wordlist > input{
+.new-wordlist div > input{
     font-size: 24px;
     width: 90%;
     padding: 5px 10px;
@@ -117,25 +117,24 @@ h3:hover {
     justify-content: center;
     user-select: none;
 }
-.new-wordlist ol {
+.new-wordlist ul {
     border: 1px solid black;
     min-height: 20px;
     min-width: 50%;
+    padding: 0;
 }
-.new-wordlist ol li {
-    margin: 3px 10px;
+.new-wordlist ul li {
+    /* margin: 3px 1px; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
-.new-wordlist ol li span {
-    transition: 0.2s;
-
-}
-
-.new-wordlist ol li span:hover {
+.new-wordlist ul li button:hover {
     cursor: pointer;
-    background-color: red;
-    transition: 0.2s;
+}
+.new-wordlist ul li button div {
+    margin: 3px;
 }
 .new-wordlist form {
     display: flex;

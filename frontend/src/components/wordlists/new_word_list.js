@@ -12,7 +12,7 @@ class NewWordList extends React.Component {
         unlisted: false,
         words: []      
       }
-      document.title = 'New WordList - Internet Bingo'
+      document.title = 'Compose New Phrase List - Internet Bingo'
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
       this.deleteWordAt = this.deleteWordAt.bind(this)
@@ -62,11 +62,14 @@ class NewWordList extends React.Component {
     let words = this.state.words.map( (word,idx) => { 
       return ( 
         <li key={idx}>
-          #{idx+1}:{word} 
-          <span 
-            onClick={this.deleteWordAt(idx)} 
-            aria-label="delete" title="delete" role="img"
-          > 🗑️ </span>
+          #{idx+1}: {word} 
+          <button onClick={this.deleteWordAt(idx)}>
+            <div>
+            <span title="Delete Word" aria-label="Delete Word" role="img"> 
+              🗑️ 
+            </span>
+            </div>
+          </button>
         </li>
       )
     })
@@ -89,9 +92,9 @@ class NewWordList extends React.Component {
           SAVE
         </div>
         <div className={this.state.words.length>5?"hidden":"disclaimer"}>Lists have a strict minimum of 24 words.</div>
-        <ol className="wordlist">
+        <ul className="wordlist">
           {words}
-        </ol>
+        </ul>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="add new word"></input>
           <input type="submit" value="Add to List" />

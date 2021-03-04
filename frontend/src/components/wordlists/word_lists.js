@@ -4,6 +4,7 @@ import './word_list.css'
 
 function WordLists(props) {
     useEffect(() => {
+        document.title = 'List of Phrase Lists - Internet Bingo'
         async function fetchData() {
           await props.fetchUserWordLists(props.currentUser.id)
         }
@@ -29,7 +30,7 @@ function WordLists(props) {
                 </div>
                 <Link to="/wordlists/new">
                     <div>
-                        New WordList
+                        Compose New Phrase List
                     </div>
                 </Link>
             </div>
