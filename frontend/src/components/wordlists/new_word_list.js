@@ -36,6 +36,11 @@ class ComposePhraseList extends React.Component {
       e.currentTarget.firstChild.value = ''
     }
   }
+  clip(word) {
+    return e => {
+      navigator.clipboard.writeText(word)
+    }
+  }
   deleteWordAt(idx) {
     return e => {
       let words = this.state.words
@@ -62,7 +67,16 @@ class ComposePhraseList extends React.Component {
     let words = this.state.words.map( (word,idx) => { 
       return ( 
         <li key={idx}>
-          #{idx+1}: {word} 
+          <div>
+          <button onClick={this.clip(word)}>
+            <div>
+            <span title="Delete Word" aria-label="Delete Word" role="img"> 
+              📋
+            </span>
+            </div>
+          </button>
+          {word} 
+          </div>
           <button onClick={this.deleteWordAt(idx)}>
             <div>
             <span title="Delete Word" aria-label="Delete Word" role="img"> 
