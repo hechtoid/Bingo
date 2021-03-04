@@ -20,11 +20,16 @@ function WordLists(props) {
                     {props.lists.map( (list,idx) => {
                         return(
                             <ul key={idx}>
-                                <Link to={`/wordlists/${list._id}`}>
+                                <Link 
+                                    to={{
+                                        pathname: `/wordlists/${list._id}`,
+                                        list
+                                    }}
+                                >
                                     <h3>{list.name}</h3>
                                 </Link>
                                 <div>
-                                {list.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} /> )}
+                                    {list.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} /> )}
                                 </div>
                                 <div className="delete" onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
                             </ul>
