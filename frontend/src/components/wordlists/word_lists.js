@@ -1,5 +1,8 @@
 import React, {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import Word from './word'
+
 import './word_list.css'
 
 function WordLists(props) {
@@ -21,7 +24,7 @@ function WordLists(props) {
                                     <h3>{list.name}</h3>
                                 </Link>
                                 <div>
-                                {list.words.map( (word,idx) => <li key={idx}>#{idx+1}: <div>{word}</div></li> )}
+                                {list.words.map( (word,idx) => <Word word={word} idx={idx} /> )}
                                 </div>
                                 <div className="delete" onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
                             </ol>

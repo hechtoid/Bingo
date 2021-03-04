@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Word from './word'
+
 import './word_list.css'
 
 class ComposePhraseList extends React.Component {
@@ -36,11 +38,7 @@ class ComposePhraseList extends React.Component {
       e.currentTarget.firstChild.value = ''
     }
   }
-  clip(word) {
-    return e => {
-      navigator.clipboard.writeText(word)
-    }
-  }
+
   deleteWordAt(idx) {
     return e => {
       let words = this.state.words
@@ -66,25 +64,7 @@ class ComposePhraseList extends React.Component {
   render() {
     let words = this.state.words.map( (word,idx) => { 
       return ( 
-        <li key={idx}>
-          <div>
-          <button onClick={this.clip(word)}>
-            <div>
-            <span title="Delete Word" aria-label="Delete Word" role="img"> 
-              📋
-            </span>
-            </div>
-          </button>
-          {word} 
-          </div>
-          <button onClick={this.deleteWordAt(idx)}>
-            <div>
-            <span title="Delete Word" aria-label="Delete Word" role="img"> 
-              🗑️ 
-            </span>
-            </div>
-          </button>
-        </li>
+        <Word word={word} idx={idx} delete={this.deleteWordAt(idx)}/>
       )
     })
     return (
