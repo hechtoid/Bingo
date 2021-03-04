@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import './word_list.css'
 
-class NewWordList extends React.Component {
+class ComposePhraseList extends React.Component {
   constructor(props) {
       super(props);
 
       this.state = {
-        name: `${props.currentUser.handle}'s New Word List ${new Date().toLocaleDateString()}`,
+        name: `${props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
         unlisted: false,
         words: []      
       }
@@ -110,4 +110,4 @@ class NewWordList extends React.Component {
   }
 }
 
-export default NewWordList;
+export default ComposePhraseList;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { saveWordList } from '../../actions/word_list_actions';
-import NewWordList from './new_word_list';
+import ComposePhraseList from './new_word_list';
 
 
 const mapStateToProps = (state) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewWordList);
+export default connect(mapStateToProps, mapDispatchToProps)(ComposePhraseList);
