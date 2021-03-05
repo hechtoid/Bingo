@@ -14,6 +14,9 @@ class Board extends React.Component {
         this.state = board
         this.sizeArray = [...Array(this.props.size).keys()]
     }
+    win = () => this.blackout() || false
+
+    blackout = () => Object.keys(this.state).every( key => this.state[key] )
 
 render() {
     let list = this.props.list.slice()
@@ -39,8 +42,12 @@ render() {
     </tbody></table>
     
     return (
-        <div className="game">  
+        <div className="game"> 
+            {this.win()? "WINRAR":""}
             {board}
+
+
+
         </div>
     )
 }
