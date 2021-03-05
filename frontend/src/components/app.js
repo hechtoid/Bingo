@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import ComposePhraseListContainer from './wordlists/compose_phrase_list_container';
 import WordListsContainer from './wordlists/word_lists_container';
 import Board from './game/board';
+import Game from './game/game';
 
 import './app.css'
 
@@ -20,13 +21,12 @@ const App = () => (
         <ProtectedRoute exact path="/wordlists/" component={WordListsContainer} />
         <ProtectedRoute exact path="/wordlists/new" component={ComposePhraseListContainer} />
         <ProtectedRoute exact path="/wordlists/:id" component={ComposePhraseListContainer} />
-        {/* <ProtectedRoute exact path="/game/:id" component={Game} /> */}
-        <Route path="/game/">
+        <Route path="/game/:id">
         <div className="games">
 
-          <Board size={5} />
-          <Board size={5} free={true} />
-          <Board size={2} />
+          <Game size={5} />
+          <Game size={3} free={true} />
+          <Game size={2} />
         </div>
         </Route>
       </Switch>

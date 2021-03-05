@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import shuffle from '../../util/array_shuffle'
-
 import './board.css';
 
 
@@ -21,10 +19,7 @@ class Board extends React.Component {
             let i = Math.floor(this.props.size / 2 )
             this.freeKey = i+':'+i
         }
-        this.list = 
-            this.props.location.list
-            ? shuffle(this.props.location.list.words)
-            : ["food", "dood", "pood", "lood", "nood", "rood", "tood", "yood", "zood"]
+        
     }
 
     rows = () => {
@@ -84,7 +79,7 @@ class Board extends React.Component {
     componentDidUpdate() { this.free() }
 
 render() {
-    let list = this.list.slice()
+    let list = this.props.list ? this.props.list.slice() : []
     let board = 
         <table><tbody>
             { this.sizeArray.map( i => {
@@ -118,7 +113,7 @@ render() {
     return (
         <div className="game"> 
             {board}
-            {this.win()? "WINRAR":""}
+            {this.win()? "BINGO":""}
             <div></div>
             {this.blackout()? "BLACKOUT":""}
 
