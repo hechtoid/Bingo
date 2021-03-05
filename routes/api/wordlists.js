@@ -8,9 +8,10 @@ const WordList = require('../../models/WordList');
 router.get("/", (req, res) => res.send("Hello Word!!"));
 
 
-router.get('/user/:user_id', (req, res) => {
-    passport.authenticate('jwt', { session: false }),    
-    WordList.find({user: { $in: [req.params.user_id] } })
+router.get('/user/:user_id', 
+    passport.authenticate('jwt', { session: false }),  
+    (req, res) => {
+      WordList.find({user: { $in: [req.params.user_id] } })
         .sort({ date: -1 })
         .then(wordlists => res.json(wordlists))
         .catch(err =>

@@ -21,8 +21,7 @@ const App = () => (
         <ProtectedRoute exact path="/wordlists/new" component={ComposePhraseListContainer} />
         <ProtectedRoute exact path="/wordlists/:id" component={ComposePhraseListContainer} />
         <Route exact path="/game">
-          <Board size={2}/>
-          <Board size={5}/>
+          <Board size={2} list={["food", "dood", "pood", "lood", "nood"]}/>
         </Route>
       </Switch>
     </main>

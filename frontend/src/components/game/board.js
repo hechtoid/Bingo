@@ -12,34 +12,36 @@ class Board extends React.Component {
             } 
         }
         this.state = board
+        this.sizeArray = [...Array(this.props.size).keys()]
     }
-    //make the array for keys  in the props
-render() {
-    let board = []
-    // for (let i = 0; i < this.props.size; i++) {
 
-        
-    // }
+render() {
+    let list = this.props.list.slice()
+    let board = 
+    <table><tbody>
+        { this.sizeArray.map( i => {
+            return (
+                <tr key={i}>
+                    { this.sizeArray.map( j => {
+                        let key = i+':'+j
+                        return (
+                            <td 
+                                key={j}
+                                className={this.state[key] ?"clicked":"unclicked"}
+                                onClick={()=>this.setState({ [key]: !this.state[key] }) }
+                            >
+                                {list.pop()}
+                            </td>)
+                    }) }
+                </tr>
+            )
+        }) }
+    </tbody></table>
     
     return (
-        <div className="game">
-
-        {Object.keys(this.state).map( key => {
-            return (
-                <div 
-                    className={this.state[key] ?"clicked":"unclicked"}
-                    onClick={()=>this.setState({ [key]: !this.state[key] }) }
-                    >
-                    {key} "Food!"
-                </div>
-            )
-        })}
-            <div onClick= {() => this.setState({
-                ['5:4']: {phrase:'phrase',clicked: true}
-            }) }>
-                Foo
+        <div className="game">  
+            {board}
         </div>
-    </div>
     )
 }
 }
