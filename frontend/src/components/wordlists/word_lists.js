@@ -20,12 +20,7 @@ function WordLists(props) {
                     {props.lists.map( (list,idx) => {
                         return(
                             <ul key={idx}>
-                                <Link 
-                                    to={{
-                                        pathname: `/wordlists/${list._id}`,
-                                        list
-                                    }}
-                                >
+                                <Link to={{ pathname: `/wordlists/${list._id}`, list }}>
                                     <h3>{list.name}</h3>
                                 </Link>
                                 <div>

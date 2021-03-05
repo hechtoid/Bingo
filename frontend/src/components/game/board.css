@@ -1,0 +1,11 @@
+.clicked {
+    background-color: red;
+}
+
+.clicked:hover, .unclicked:hover {
+    cursor: pointer;
+}
+
+.clicked, .unclicked {
+    user-select: none;
+}
