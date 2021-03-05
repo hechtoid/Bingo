@@ -90,7 +90,9 @@ render() {
                             if (this.freeKey && this.freeKey === key) {
                                 return (
                                     <td className="free-spot" key={j}>
-                                        FREE
+                                        <div>
+                                            FREE
+                                        </div>
                                     </td>
                                 )    
                             } else {
@@ -99,8 +101,10 @@ render() {
                                         key={j}
                                         className={this.state[key]?"clicked":"unclicked"}
                                         onClick={()=>this.setState({ [key]: !this.state[key] }) }
-                                    >
+                                    > 
+                                    <div>
                                         {list.pop()}
+                                    </div>
                                     </td>
                                 )
                             }
