@@ -20,12 +20,14 @@ function WordLists(props) {
                     {props.lists.map( (list,idx) => {
                         return(
                             <ul key={idx}>
+                            <div className="title">
                                 <Link to={{ pathname: `/game/${list._id}`, list }}>
-                                    <h3>{list.name}</h3>
+                                    <div>{list.name}</div>
                                 </Link>   
                                 <Link to={{ pathname: `/wordlists/${list._id}`, list }}>
-                                    <h3>✏️</h3>
+                                    <div>✏️</div>
                                 </Link>
+                            </div>
                                 <div>
                                     {list.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} /> )}
                                 </div>

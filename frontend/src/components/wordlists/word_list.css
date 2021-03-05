@@ -27,6 +27,19 @@ h3:hover {
     flex-direction: column;
     justify-content: space-between;
 }
+.wordlists ul .title {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+
+}
+.wordlists ul .title div {
+    /* border: 1px solid red; */
+    font-size: 23px;
+    font-weight: 900;
+    color: green;
+    width: 100%;
+}
 .wordlists ul a{
     margin: 5px;
 }

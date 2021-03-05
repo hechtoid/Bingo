@@ -14,6 +14,10 @@ const WordListSchema = new Schema({
   },
   words: {
     type: Array
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
