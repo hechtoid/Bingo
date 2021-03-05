@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
+
 import './board.css';
 
 
@@ -65,8 +68,8 @@ class Board extends React.Component {
     blackout = () => this.keysArray.every( key => this.state[key] )
 
 render() {
-    let list = this.props.location
-                ? this.props.location.list.slice()
+    let list = this.props.location.list
+                ? this.props.location.list.words.slice()
                 : ["food", "dood", "pood", "lood", "nood", "rood", "tood", "yood", "zood"]
     let board = 
     <table><tbody>
@@ -104,4 +107,4 @@ render() {
 }
 
 
-export default Board;
+export default withRouter(Board);
