@@ -12,14 +12,62 @@ class Board extends React.Component {
             } 
         }
         this.state = board
-        this.sizeArray = [...Array(this.props.size).keys()]
-    }
-    win = () => this.blackout() || false
 
-    blackout = () => Object.keys(this.state).every( key => this.state[key] )
+        this.sizeArray = [...Array(this.props.size).keys()]
+        this.keysArray = Object.keys(this.state)
+    }
+
+    rows = () => {
+        let win
+        for (let i = 0; i < this.props.size; i++) {
+            let win = true
+            for (let j = 0; j < this.props.size; j++) {
+                if (this.state[i+':'+j] === false ) {
+                    win = false
+                }
+            } 
+            if (win) {return win}
+        }
+        return win
+    }
+    columns = () => {
+        let win
+        for (let i = 0; i < this.props.size; i++) {
+            let win = true
+            for (let j = 0; j < this.props.size; j++) {
+                if (this.state[j+':'+i] === false ) {
+                    win = false
+                }
+            } 
+            if (win) {return win}
+        }
+        return win
+    }
+    diagonalA = () => {
+        let win = true
+        for (let i = 0; i < this.props.size; i++) {
+                if (this.state[i+':'+i] === false ) {
+                    win = false
+                }
+        }
+        return win
+    }
+    diagonalB = () => {
+        let win = true
+        for (let i = 0; i < this.props.size; i++) {
+                if (this.state[i+':'+(this.props.size-1-i)] === false ) {
+                    win = false
+                }
+        }
+        return win
+    }
+    win = () => this.rows() || this.columns() || this.diagonalA() || this.diagonalB()
+    blackout = () => this.keysArray.every( key => this.state[key] )
 
 render() {
-    let list = this.props.list.slice()
+    let list = this.props.location
+                ? this.props.location.list.slice()
+                : ["food", "dood", "pood", "lood", "nood", "rood", "tood", "yood", "zood"]
     let board = 
     <table><tbody>
         { this.sizeArray.map( i => {
@@ -30,7 +78,7 @@ render() {
                         return (
                             <td 
                                 key={j}
-                                className={this.state[key] ?"clicked":"unclicked"}
+                                className={this.state[key]?"clicked":"unclicked"}
                                 onClick={()=>this.setState({ [key]: !this.state[key] }) }
                             >
                                 {list.pop()}
@@ -43,8 +91,10 @@ render() {
     
     return (
         <div className="game"> 
-            {this.win()? "WINRAR":""}
             {board}
+            {this.win()? "WINRAR":""}
+            <div></div>
+            {this.blackout()? "BLACKOUT":""}
 
 
 
