@@ -9,6 +9,7 @@ router.get("/", (req, res) => res.send("Hello Word!!"));
 
 
 router.get('/user/:user_id', (req, res) => {
+    passport.authenticate('jwt', { session: false }),    
     WordList.find({user: { $in: [req.params.user_id] } })
         .sort({ date: -1 })
         .then(wordlists => res.json(wordlists))
@@ -17,6 +18,14 @@ router.get('/user/:user_id', (req, res) => {
         )
     );
 });
+
+router.get('/:list_id',
+    passport.authenticate('jwt', { session: false }),    
+    (req, res) => {
+      WordList.findById(req.params.list_id)
+        .then( wordlist => res.json(wordlist));
+    }
+)
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
