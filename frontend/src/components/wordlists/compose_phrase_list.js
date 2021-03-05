@@ -27,7 +27,7 @@ class ComposePhraseList extends React.Component {
   
   saveWordList(e) {
     e.preventDefault()
-    if (this.state.words.length>5){
+    if (this.state.words.length>24){
       this.props.saveWordList(this.state);
       this.props.history.push('/wordlists')
     }
@@ -77,14 +77,21 @@ class ComposePhraseList extends React.Component {
         </input>
         <div 
             className={
-              this.state.words.length > 5
+              this.state.words.length > 24
               ? "save-button"
               : "save-button-disabled"
             } 
             onClick={this.saveWordList}>
           SAVE
         </div>
-        <div className={this.state.words.length>5?"hidden":"disclaimer"}>Lists have a strict minimum of 24 words.</div>
+        <div 
+          className={
+            this.state.words.length > 24 
+            ? "hidden"
+            : "disclaimer"
+        }>
+          Lists have a strict minimum of 24 words.
+        </div>
         <ul className="wordlist">
           {words}
         </ul>

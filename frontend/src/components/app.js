@@ -21,8 +21,13 @@ const App = () => (
         <ProtectedRoute exact path="/wordlists/new" component={ComposePhraseListContainer} />
         <ProtectedRoute exact path="/wordlists/:id" component={ComposePhraseListContainer} />
         {/* <ProtectedRoute exact path="/game/:id" component={Game} /> */}
-        <Route path="/game">
-          <Board size={3} />
+        <Route path="/game/">
+        <div className="games">
+
+          <Board size={5} />
+          <Board size={5} free={true} />
+          <Board size={2} />
+        </div>
         </Route>
       </Switch>
     </main>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import shuffle from '../../util/array_shuffle'
 
 import './board.css';
 
@@ -15,9 +16,15 @@ class Board extends React.Component {
             } 
         }
         this.state = board
-
         this.sizeArray = [...Array(this.props.size).keys()]
-        this.keysArray = Object.keys(this.state)
+        if (this.props.free && this.props.size % 2 === 1) {
+            let i = Math.floor(this.props.size / 2 )
+            this.freeKey = i+':'+i
+        }
+        this.list = 
+            this.props.location.list
+            ? shuffle(this.props.location.list.words)
+            : ["food", "dood", "pood", "lood", "nood", "rood", "tood", "yood", "zood"]
     }
 
     rows = () => {
@@ -64,34 +71,50 @@ class Board extends React.Component {
         }
         return win
     }
+    
     win = () => this.rows() || this.columns() || this.diagonalA() || this.diagonalB()
-    blackout = () => this.keysArray.every( key => this.state[key] )
+    
+    blackout = () => Object.keys(this.state).every( key => this.state[key] )
+    
+    free = () =>  {if (this.freeKey) {
+        if (!this.state[this.freeKey]) this.setState({ [this.freeKey]: true })
+    }}
+
+    componentDidMount() { this.free() }
+    componentDidUpdate() { this.free() }
 
 render() {
-    let list = this.props.location.list
-                ? this.props.location.list.words.slice()
-                : ["food", "dood", "pood", "lood", "nood", "rood", "tood", "yood", "zood"]
+    let list = this.list.slice()
     let board = 
-    <table><tbody>
-        { this.sizeArray.map( i => {
-            return (
-                <tr key={i}>
-                    { this.sizeArray.map( j => {
-                        let key = i+':'+j
-                        return (
-                            <td 
-                                key={j}
-                                className={this.state[key]?"clicked":"unclicked"}
-                                onClick={()=>this.setState({ [key]: !this.state[key] }) }
-                            >
-                                {list.pop()}
-                            </td>)
-                    }) }
-                </tr>
-            )
-        }) }
-    </tbody></table>
-    
+        <table><tbody>
+            { this.sizeArray.map( i => {
+                return (
+                    <tr key={i}>
+                        { this.sizeArray.map( j => {
+                            let key = i+':'+j
+                            if (this.freeKey && this.freeKey === key) {
+                                return (
+                                    <td className="free-spot" key={j}>
+                                        FREE
+                                    </td>
+                                )    
+                            } else {
+                                return (
+                                    <td 
+                                        key={j}
+                                        className={this.state[key]?"clicked":"unclicked"}
+                                        onClick={()=>this.setState({ [key]: !this.state[key] }) }
+                                    >
+                                        {list.pop()}
+                                    </td>
+                                )
+                            }
+                        })}
+                    </tr>
+                )
+            }) }
+        </tbody></table>
+
     return (
         <div className="game"> 
             {board}

@@ -1,3 +1,7 @@
+.games {
+    display: flex;
+}
+
 .game table {
     border: 5px solid black;
     padding: 10px;
@@ -8,16 +12,26 @@
     margin: 5px; 
     padding: 5px;
     font-size: 23px;
+    width: 50px;
+    height: 50px;
 }
 
+.free-spot {
+    background-color: red;
+    font-weight: 900;
+    user-select: none;
+
+}
 .clicked {
     background-color: red;
+    user-select: none;
+
 }
 
 .clicked:hover, .unclicked:hover {
     cursor: pointer;
 }
 
-.clicked, .unclicked {
+.unclicked {
     user-select: none;
 }
