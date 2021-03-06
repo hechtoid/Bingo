@@ -123,7 +123,7 @@ class ComposePhraseList extends React.Component {
           <input type="text" placeholder="add new word"></input>
           <input type="submit" value="Add to List" />
         </form>
-        <label><input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />Private List</label>
+        <label><input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />UnListed List?</label>
       </div>
 
       </div>
