@@ -91,7 +91,7 @@ class Board extends React.Component {
 
     componentDidMount() { this.free() }
     componentDidUpdate() { this.free() }
-    componentWillUpdate(nextProps) { document.title = `${nextProps.name} - Internet Bingo` }
+    componentDidUpdate() { document.title = `Playing Board: ${this.props.name} - Internet Bingo` }
 
 render() {
     let list = this.props.list ? this.props.list.slice() : []

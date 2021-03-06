@@ -15,7 +15,6 @@ class ComposePhraseList extends React.Component {
         unlisted: false,
         words: []
       }
-      document.title = 'Compose New Phrase List - Internet Bingo'
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
       this.deletePhraseAt = this.deletePhraseAt.bind(this)
@@ -24,6 +23,9 @@ class ComposePhraseList extends React.Component {
   
   componentDidMount() {
     this.makeList()
+  }
+  componentDidUpdate() {
+    document.title = `Writing List: ${this.state.name} - Internet Bingo`
   }
   makeList = () => {
     if (this.props.location.list) {
@@ -111,19 +113,23 @@ class ComposePhraseList extends React.Component {
         <div 
           className={
             this.state.words.length > 24 
-            ? "hidden"
+            ? ["hidden", "disclaimer"].join(' ')
             : "disclaimer"
         }>
           Lists have a strict minimum of 24 words.
         </div>
-        <ul className="wordlist">
-          {words}
-        </ul>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="add new word"></input>
           <input type="submit" value="Add to List" />
         </form>
-        <label><input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />UnListed List?</label>
+        <label>
+          <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
+            UnListed List?
+        </label>
+        <ul className="wordlist">
+          {words}
+        </ul>
+        
       </div>
 
       </div>
