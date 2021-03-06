@@ -149,7 +149,7 @@ render() {
                 {/* <div> */}
                     <button onClick={this.clear}>CLEAR</button>
                     <button onClick={this.shuffle}>CLEAR & SHUFFLE</button>
-                    <button onClick={this.props.smaller}>smaller</button>
+                    <button onClick={this.props.smaller} disabled={this.props.size===2}>smaller</button>
                     <button onClick={this.props.bigger}>BIGGER</button>
                     <label>
                         <input type="checkbox" onChange={this.props.setFree} checked={this.props.free} /> 
