@@ -1,24 +1,68 @@
 .games {
     display: flex;
+    justify-content: center;
 }
+.game {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 
+}
+.game > div:first-child {
+    width: 200px;
+    font-size: 50px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game .play {
+    border: 10px solid lightgray;
+    border-radius: 40px;
+    padding: 20px;    
+    color: lightgray;
+    margin: 50px;
+    user-select: none;
+}
+.game .win {
+    border: 10px solid green;
+    border-radius: 40px;
+    padding: 20px; 
+    margin: 50px;
+    user-select: none;
+}
+.game > div:last-child {
+    width: 200px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game > div:last-child button {
+    font-size: 50px;
+    padding: 20px; 
+    margin: 50px;
+    font-weight: 900;
+    cursor: pointer;
+}
 .game table {
     border: 5px solid black;
     padding: 10px;
     border-radius: 10px;
+    font-family: sans-serif;
 }
 .game table td {
     border: 1px solid black;
     margin: 5px; 
-    font-size: 18px;
+    font-size: 23px;
     
 }
 .game table td div {
     padding: 10px;
-    max-width: 123px;
-    width: 123px;
-    max-height: 123px;
-    height: 123px;
+    max-width: 136px;
+    width: 136px;
+    max-height: 136px;
+    height: 136px;
     overflow-y: auto;
     overflow-x: hidden;
     text-align: center;
@@ -28,7 +72,13 @@
     background-color: red;
     font-weight: 900;
     user-select: none;
-
+    
+}
+.free-spot div {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .clicked {
     background-color: red;

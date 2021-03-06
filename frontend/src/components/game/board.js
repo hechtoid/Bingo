@@ -131,12 +131,24 @@ render() {
 
     return (
         <div className="game"> 
-            {board}
-            <div onClick={this.clear}>CLEAR</div>
-            <div onClick={this.shuffle}>CLEAR & SHUFFLE</div>
-            {this.win()? "BINGO":""}
-            <div></div>
-            {this.blackout()? "BLACKOUT":""}
+            <div>
+                { this.win() 
+                ? <div className="win">BINGO</div>
+                : <div className="play">BINGO</div>
+                }
+                { this.blackout() 
+                ? <div className="win">BLACKOUT</div>
+                : <div className="play">BLACKOUT</div>
+                }
+            </div> 
+            <div>
+                {board}
+            </div>
+            <div>
+                <button onClick={this.clear}>CLEAR</button>
+                <button onClick={this.shuffle}>CLEAR & SHUFFLE</button>
+            </div>
+          
 
 
     
@@ -144,6 +156,7 @@ render() {
     )
 }
 }
+Board.defaultProps = {size: 5, free: true}
 
 
 export default withRouter(Board);
