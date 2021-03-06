@@ -7,21 +7,32 @@ import './board.css';
 class Board extends React.Component {
     constructor(props) {
         super(props)
-        let board = {}
-        for (let i = 0; i < this.props.size; i++) {
-            for (let j = 0; j < this.props.size; j++) {
-                board[i+':'+j] = false               
-            } 
-        }
-        this.state = board
         this.sizeArray = [...Array(this.props.size).keys()]
+        this.keyArray = []
+        this.state = this.boardmaker()
         if (this.props.free && this.props.size % 2 === 1) {
             let i = Math.floor(this.props.size / 2 )
             this.freeKey = i+':'+i
         }
-        
+        document.title = 'Game Board - Internet Bingo'
     }
-
+    
+    boardmaker = () => {
+        let board = {}
+        for (let i = 0; i < this.props.size; i++) {
+            for (let j = 0; j < this.props.size; j++) {
+                let key = i+':'+j
+                board[key] = false   
+                this.keyArray.push(key)            
+            } 
+        }
+        return board
+    }
+    reset = () => {
+        let board = {}
+        this.keyArray.map( key => board[key] = false )
+        this.setState(board)
+    }
     rows = () => {
         let win
         for (let i = 0; i < this.props.size; i++) {
@@ -69,7 +80,7 @@ class Board extends React.Component {
     
     win = () => this.rows() || this.columns() || this.diagonalA() || this.diagonalB()
     
-    blackout = () => Object.keys(this.state).every( key => this.state[key] )
+    blackout = () => this.keyArray.every( key => this.state[key] )
     
     free = () =>  {if (this.freeKey) {
         if (!this.state[this.freeKey]) this.setState({ [this.freeKey]: true })
@@ -117,12 +128,13 @@ render() {
     return (
         <div className="game"> 
             {board}
+            <div onClick={this.reset}>RESET</div>
             {this.win()? "BINGO":""}
             <div></div>
             {this.blackout()? "BLACKOUT":""}
 
 
-
+    
         </div>
     )
 }
