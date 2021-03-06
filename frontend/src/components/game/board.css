@@ -37,6 +37,10 @@
     padding: 5px;
     margin-bottom: 10px;
     text-decoration: underline;
+    max-height: 70px;
+    max-width: 800px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .game > div:last-child {
     width: 200px;
