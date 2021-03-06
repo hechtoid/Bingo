@@ -1,30 +1,54 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Phrase from './phrase'
+
+import { getWordList } from '../../util/word_list_api_util';
 
 import './word_list.css'
 
 class ComposePhraseList extends React.Component {
   constructor(props) {
       super(props);
-      if (this.props.location.list) {
-        this.state = this.props.location.list
-      } else {
-        this.state = {
-          name: `${props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
-          unlisted: false,
-          words: []      
-        }
+      this.state = {
+        name: '',
+        unlisted: false,
+        words: []
       }
       document.title = 'Compose New Phrase List - Internet Bingo'
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
       this.deletePhraseAt = this.deletePhraseAt.bind(this)
   } 
-
   selectID(e) { e.target.select()}
   
+  componentDidMount() {
+    this.makeList()
+  }
+  makeList = () => {
+    if (this.props.location.list) {
+      this.setState(this.props.location.list)
+    } 
+    else if (this.props.match.params.id) {
+      getWordList(this.props.match.params.id)
+      .then( res => {
+        this.setState(res.data)
+      } )
+      .catch( this.setState({
+        name: `${this.props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
+        unlisted: false,
+        words: []      
+      }) )
+    } else {
+      this.setState({
+        name: `${this.props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
+        unlisted: false,
+        words: []      
+      })
+    }
+  }
+
+
   saveWordList(e) {
     e.preventDefault()
     if (this.state.words.length>24){
@@ -61,8 +85,6 @@ class ComposePhraseList extends React.Component {
       unlisted: e.currentTarget.checked
     })
   }
-
-
 
   render() {
     let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} delete={this.deletePhraseAt(idx)}/> )
