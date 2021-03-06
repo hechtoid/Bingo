@@ -8,14 +8,27 @@
     display: flex;
     overflow-x: auto;
 }
-.wordlists a {
-    font-size: 23px;
-    font-weight: 900;
+.wordlists .new a{
     padding: 5px 15px;
-    height: 150px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 18px;
 }
-h3:hover {
-    cursor: pointer;
+.wordlists .new .title {
+    font-size: 36px;
+}
+.wordlists .new>div {
+    font-size: 42px;
+    font-weight: 900;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 125px;
 }
 .wordlists ul {
     min-width: 400px;
@@ -27,19 +40,20 @@ h3:hover {
     flex-direction: column;
     justify-content: space-between;
 }
-.wordlists ul .title {
+.wordlists .title {
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    height: 80px;
     border-bottom: 3px solid black;
     margin-bottom: 5px;
-
-}
-.wordlists ul .title div {
     font-size: 23px;
     font-weight: 900;
     color: green;
+    overflow: hidden;
+}
+.wordlists ul .title div {
     width: 100%;
+    color: green;
 }
 .wordlists ul a{
     margin: 5px;
@@ -55,6 +69,10 @@ h3:hover {
 .wordlists ul li div{
     display: flex;
     align-items: center;
+}
+.pencil {
+   font-family: serif;
+   font-size: 23px;
 }
 .wordlists .delete{
     color: red;
@@ -154,7 +172,7 @@ ul li button {
 ul li button:hover {
     cursor: pointer;
 }
-ul li button div {
+button div {
     margin: 3px;
 }
 .new-wordlist form {

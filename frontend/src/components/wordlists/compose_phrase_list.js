@@ -81,7 +81,9 @@ class ComposePhraseList extends React.Component {
               ? "save-button"
               : "save-button-disabled"
             } 
-            onClick={this.saveWordList}>
+            onClick={this.saveWordList}
+            title="SAVE"
+          >
           SAVE
         </div>
         <div 

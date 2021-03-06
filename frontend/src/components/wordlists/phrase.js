@@ -7,7 +7,7 @@ const Phrase = props => {
         <li key={props.idx}>
           <div>
             <CopyToClipboard text={props.phrase}>
-            <button>
+            <button title="Copy Phrase">
               <div>
                 <span title="Copy Phrase" aria-label="Copy Phrase" role="img"> 
                   📋
@@ -18,7 +18,7 @@ const Phrase = props => {
               {props.phrase} 
           </div>
           { props.delete ?
-            <button onClick={props.delete}>
+            <button title="Delete Phrase" onClick={props.delete}>
               <div>
                 <span title="Delete Phrase" aria-label="Delete Phrase" role="img"> 
                   🗑️ 
