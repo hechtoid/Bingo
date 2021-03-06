@@ -11,12 +11,12 @@ body{
     height: 100vh;
     width: 100%;
     margin: 0;
-    padding: 50px 120px;
+    padding: 0px 100px;
     box-sizing: border-box;
 }
 #root{
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 .app{
     width: 100%;
@@ -29,7 +29,7 @@ body{
     width: 100%;
     min-height: 100%;
     border-radius: 25px;
-    padding: 25px;
+    padding: 10px 25px;
     box-sizing: border-box;
 }
 

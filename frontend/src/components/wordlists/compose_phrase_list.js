@@ -65,7 +65,7 @@ class ComposePhraseList extends React.Component {
 
 
   render() {
-    let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} delete={this.deletePhraseAt(idx)}/> )
+    let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} delete={this.deletePhraseAt(idx)}/> )
     return (
       <div className="new-wordlist">
       <div>

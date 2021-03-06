@@ -14,7 +14,6 @@ class Board extends React.Component {
             let i = Math.floor(this.props.size / 2 )
             this.freeKey = i+':'+i
         }
-        document.title = 'Game Board - Internet Bingo'
     }
     
     boardmaker = () => {
@@ -92,8 +91,10 @@ class Board extends React.Component {
 
     componentDidMount() { this.free() }
     componentDidUpdate() { this.free() }
+    componentWillUpdate(nextProps) { document.title = `${nextProps.name} - Internet Bingo` }
 
 render() {
+    // document.title = `${this.props.name} - Internet Bingo`
     let list = this.props.list ? this.props.list.slice() : []
     let board = 
         <table><tbody>
@@ -142,6 +143,7 @@ render() {
                 }
             </div> 
             <div>
+                <div className="thead">{this.props.name}</div>
                 {board}
             </div>
             <div>
@@ -156,7 +158,5 @@ render() {
     )
 }
 }
-Board.defaultProps = {size: 5, free: true}
-
 
 export default withRouter(Board);
