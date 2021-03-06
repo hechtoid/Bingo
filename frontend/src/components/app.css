@@ -24,6 +24,14 @@ body{
     display: flex;
     justify-content: center;
 }
+button.home {
+    font-size: 50px;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    top: 5px;
+    left: 10px;
+}
 .main{
     background-color: rgba(255, 255, 255, 0.94);
     width: 100%;
@@ -31,7 +39,9 @@ body{
     border-radius: 25px;
     box-sizing: border-box;
 }
-
+.splash {
+    margin: 123px;
+}
 .hidden {
     visibility: hidden;
 }

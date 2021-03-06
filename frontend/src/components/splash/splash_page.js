@@ -1,11 +1,11 @@
 import React from 'react';
 import LoginFormContainer from '../session/login_form_container'
 
-class MainPage extends React.Component {
+class SplashPage extends React.Component {
 
   render() {
     return (
-     <div className="bg">
+     <div className="splash">
         <h1>Internet Bingo</h1>
        
         <div className="splash-right-box">
@@ -18,4 +18,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default SplashPage;
