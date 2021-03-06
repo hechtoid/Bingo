@@ -40,17 +40,26 @@
 }
 .game > div:last-child {
     width: 200px;
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .game > div:last-child button {
-    font-size: 50px;
     padding: 20px; 
-    margin: 50px;
+    margin: 40px;
+    font-size: 40px;
     font-weight: 900;
     cursor: pointer;
+}
+.game label {
+    font-size: 23px;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+.game label input {
+    margin: 5px;
 }
 .game table {
     border: 5px solid black;
@@ -73,13 +82,14 @@
     overflow-y: auto;
     overflow-x: hidden;
     text-align: center;
+    user-select:text;
 }
 
 .free-spot {
     background-color: red;
     font-weight: 900;
     user-select: none;
-    
+    cursor: not-allowed;  
 }
 .free-spot div {
     font-size: 36px;

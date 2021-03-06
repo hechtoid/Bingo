@@ -2,13 +2,6 @@ import React from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const Phrase = props => {
-    let clip = (phrase) => {
-        return e => {
-
-
-
-        }
-      }
     return (
         <div className="word">
         <li key={props.idx}>

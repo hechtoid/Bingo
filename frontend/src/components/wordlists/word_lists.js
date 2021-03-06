@@ -25,7 +25,7 @@ function WordLists(props) {
                                     <div>{list.name}</div>
                                 </Link>   
                                 <Link to={{ pathname: `/wordlists/${list._id}`, list }}>
-                                    <div>✏️</div>
+                                    <div><span title="Edit List" aria-label="Edit List" role="img">✏️</span></div>
                                 </Link>
                             </div>
                                 <div>

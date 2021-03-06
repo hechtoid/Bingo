@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './board.css';
 
@@ -94,7 +94,6 @@ class Board extends React.Component {
     componentWillUpdate(nextProps) { document.title = `${nextProps.name} - Internet Bingo` }
 
 render() {
-    // document.title = `${this.props.name} - Internet Bingo`
     let list = this.props.list ? this.props.list.slice() : []
     let board = 
         <table><tbody>
@@ -147,8 +146,16 @@ render() {
                 {board}
             </div>
             <div>
-                <button onClick={this.clear}>CLEAR</button>
-                <button onClick={this.shuffle}>CLEAR & SHUFFLE</button>
+                {/* <div> */}
+                    <button onClick={this.clear}>CLEAR</button>
+                    <button onClick={this.shuffle}>CLEAR & SHUFFLE</button>
+                    <button onClick={this.props.smaller}>smaller</button>
+                    <button onClick={this.props.bigger}>BIGGER</button>
+                    <label>
+                        <input type="checkbox" onChange={this.props.setFree} checked={this.props.free} /> 
+                        Free Square
+                    </label>
+                {/* </div> */}
             </div>
           
 
