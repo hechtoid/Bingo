@@ -104,9 +104,6 @@ class ComposePhraseList extends React.Component {
         <label><input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />Private List</label>
       </div>
 
-      <Link to='/wordlists'>
-          <div>Back to List of Lists</div>
-      </Link>
       </div>
     )
   }
