@@ -15,8 +15,12 @@ function WordLists(props) {
       }, []);
         return (
             <div className="wordlists">
-                
-                <div className="wordlists-panel">
+            <div>
+            <Link to="/wordlists/new">
+                    <div>
+                        Compose New Phrase List
+                    </div>
+                </Link>
                     {props.lists.map( (list,idx) => {
                         return(
                             <ul key={idx}>
@@ -35,12 +39,8 @@ function WordLists(props) {
                             </ul>
                         )
                     })}
-                </div>
-                <Link to="/wordlists/new">
-                    <div>
-                        Compose New Phrase List
-                    </div>
-                </Link>
+
+            </div>
             </div>
         )
     

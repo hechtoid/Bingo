@@ -3,7 +3,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const Phrase = props => {
     return (
-        <div className="word">
+        <div className="phrase">
         <li key={props.idx}>
           <div>
             <CopyToClipboard text={props.phrase}>
@@ -15,7 +15,7 @@ const Phrase = props => {
               </div>
             </button>
             </CopyToClipboard>
-            {props.phrase} 
+              {props.phrase} 
           </div>
           { props.delete ?
             <button onClick={props.delete}>
