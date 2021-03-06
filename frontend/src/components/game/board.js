@@ -28,10 +28,14 @@ class Board extends React.Component {
         }
         return board
     }
-    reset = () => {
+    clear = () => {
         let board = {}
         this.keyArray.map( key => board[key] = false )
         this.setState(board)
+    }
+    shuffle = () => {
+        this.clear()
+        this.props.shuffleList()
     }
     rows = () => {
         let win
@@ -42,7 +46,7 @@ class Board extends React.Component {
                     win = false
                 }
             } 
-            if (win) {return win}
+            if (win) return win
         }
         return win
     }
@@ -55,7 +59,7 @@ class Board extends React.Component {
                     win = false
                 }
             } 
-            if (win) {return win}
+            if (win) return win
         }
         return win
     }
@@ -128,7 +132,8 @@ render() {
     return (
         <div className="game"> 
             {board}
-            <div onClick={this.reset}>RESET</div>
+            <div onClick={this.clear}>CLEAR</div>
+            <div onClick={this.shuffle}>CLEAR & SHUFFLE</div>
             {this.win()? "BINGO":""}
             <div></div>
             {this.blackout()? "BLACKOUT":""}
