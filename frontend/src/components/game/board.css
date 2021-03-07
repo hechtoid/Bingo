@@ -106,11 +106,13 @@
     user-select: none;
 
 }
-
 .clicked:hover, .unclicked:hover {
     cursor: pointer;
 }
-
 .unclicked {
     user-select: none;
+}
+
+.disabled {
+    color: lightgray;
 }

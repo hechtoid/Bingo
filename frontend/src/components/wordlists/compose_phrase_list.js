@@ -53,7 +53,7 @@ class ComposePhraseList extends React.Component {
 
   saveWordList(e) {
     e.preventDefault()
-    if (this.state.words.length >= 4){
+    if (this.state.words.length >= 3){
       this.props.saveWordList(this.state);
       this.props.history.push('/wordlists')
     }
