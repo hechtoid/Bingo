@@ -13,6 +13,7 @@ class Game extends React.Component {
             name: '',
             phrases: [],
             free: true,
+            repeat: false,
             size: 5,
             key: 1
         }        
@@ -58,6 +59,12 @@ class Game extends React.Component {
             key: this.state.key + 1
         })
     }
+    setRepeat = () => {
+        this.setState({
+            repeat: !this.state.repeat,
+            key: this.state.key + 1
+        })
+    }
     bigger = () => {
         this.setState({
             size: this.state.size + 1,
@@ -72,15 +79,26 @@ class Game extends React.Component {
             key: this.state.key + 1
         })}
     }
+    phraseLister = () => {
+        let phrases = this.state.phrases
+        while (this.state.repeat && phrases.length > 1 && phrases.length <= this.state.size**2) {
+            console.log(phrases)
+            phrases = phrases.concat(this.state.phrases)
+        }
+        return phrases
+    }
 render() {
+    let phrases = this.phraseLister()
     return (
         <div className="games">
             <Board 
                 name={this.state.name}
-                list={this.state.phrases} 
+                list={phrases} 
                 shuffleList={this.shuffleList}
                 free={this.state.free} 
                 setFree={this.setFree}
+                repeat={this.state.repeat}
+                setRepeat={this.setRepeat}
                 size={this.state.size} 
                 bigger={this.bigger}
                 smaller={this.smaller}

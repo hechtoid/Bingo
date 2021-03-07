@@ -95,7 +95,7 @@ class Board extends React.Component {
         this.free() }
 
 render() {
-    let list = this.props.list ? this.props.list.slice() : []
+    let list = this.props.list.slice()
     let board = 
         <table><tbody>
             { this.sizeArray.map( i => {
@@ -159,6 +159,14 @@ render() {
                             disabled={this.props.size % 2 === 0}
                         /> 
                         Free Square
+                    </label>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            onChange={this.props.setRepeat} 
+                            checked={this.props.repeat} 
+                        /> 
+                        Repeat Phrases
                     </label>
             </div>
           
