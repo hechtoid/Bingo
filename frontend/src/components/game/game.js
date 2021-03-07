@@ -81,7 +81,7 @@ class Game extends React.Component {
     }
     phraseLister = () => {
         let phrases = this.state.phrases
-        while (this.state.repeat && phrases.length > 1 && phrases.length <= this.state.size**2) {
+        while (this.state.repeat && phrases.length > 0 && phrases.length <= this.state.size**2) {
             phrases = phrases.concat(this.state.phrases)
         }
         return phrases
