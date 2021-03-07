@@ -134,9 +134,7 @@ class ComposePhraseList extends React.Component {
         <ul className="wordlist">
           {words}
         </ul>
-        
       </div>
-
       </div>
     )
   }
