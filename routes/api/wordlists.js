@@ -21,7 +21,9 @@ router.get('/user/:user_id',
 });
 
 router.get('/:list_id',
-    //Keep Unlocked! Share Games with Non-Users // passport.authenticate('jwt', { session: false }),    
+    // Keep Unlocked! Share Games with Non-Users
+    // But check userID for private? 
+    // passport.authenticate('jwt', { session: false }),    
     (req, res) => {
       WordList.findById(req.params.list_id)
         .then( wordlist => res.json(wordlist));

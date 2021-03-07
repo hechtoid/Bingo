@@ -144,7 +144,7 @@
 .hidden-disclaimer {
 
 }
-ul {
+.new-wordlist ul {
     border: 1px solid black;
     min-height: 20px;
     min-width: 50%;

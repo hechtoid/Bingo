@@ -12,7 +12,6 @@ class SplashPage extends React.Component {
           <LoginFormContainer/>
         </div>
 
-    
      </div>
     );
   }
