@@ -93,39 +93,44 @@ class ComposePhraseList extends React.Component {
     return (
       <div className="new-wordlist">
       <div>
-        <input 
-          type="text" 
-          value={this.state.name} 
-          onChange={this.updateName()} 
-          onFocus={this.selectID}>
-        </input>
         <div 
-            className={
-              this.state.words.length >= 4
-              ? "save-button"
-              : "save-button-disabled"
-            } 
-            onClick={this.saveWordList}
-            title="SAVE"
-          >
+          className={ this.state.words.length >= 4
+            ? "save-button"
+            : "save-button-disabled" } 
+          onClick={this.saveWordList}
+          title="SAVE"
+        >
           SAVE
         </div>
         <div 
-          className={
-            this.state.words.length >= 24 
-            ? ["hidden", "disclaimer"].join(' ')
-            : "disclaimer"
-        }>
-          Lists need at least 24 words to play a standard 5x5 board without repeating. 
+          className={ this.state.words.length >= 24 
+          ? ["hidden", "disclaimer"].join(' ')
+          : "disclaimer" }
+        >
+          Lists need at least 24 phrases to play a standard 5x5 board without repeats. 
+        </div>
+        <div className="title">
+          <label>
+              UnListed
+            <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
+          </label>
+          <input 
+            type="text" 
+            value={this.state.name} 
+            onChange={this.updateName()} 
+            onFocus={this.selectID}>
+          </input>
+          <div>
+            <span>
+              {this.state.words.length} 
+            </span>
+            phrases
+          </div>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="add new word"></input>
+          <input type="text" placeholder="Add Phrase"></input>
           <input type="submit" value="Add to List" />
-        </form>
-        <label>
-          <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
-            UnListed List?
-        </label>
+        </form>        
         <ul className="wordlist">
           {words}
         </ul>

@@ -110,11 +110,6 @@
 
 }
 
-.new-wordlist div > input {
-    font-size: 24px;
-    width: 90%;
-    padding: 5px 10px;
-}
 .new-wordlist>div>div:first-of-type {
     background-color: lightgray;
     border: 5px solid black;
@@ -122,7 +117,6 @@
     font-size: 36px;
     border-radius: 10px;
     width: 200px;
-    margin-top: 20px;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -140,9 +134,27 @@
     font-style: oblique;
     font-size: 12px;
     font-family: sans-serif;
+    margin: 5px;
 }
-.hidden-disclaimer {
-
+.new-wordlist .title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+}
+.new-wordlist .title label {
+    display: flex;
+    align-items: center;
+}
+.new-wordlist div > input {
+    font-size: 24px;
+    width: 70%;
+    padding: 5px 10px;
+    margin: 0 10px;
+}
+.new-wordlist div div span {
+    font-weight: 900;
+    margin-right: 5px;
 }
 .new-wordlist ul {
     border: 1px solid black;

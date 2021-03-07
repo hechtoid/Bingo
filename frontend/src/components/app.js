@@ -13,7 +13,11 @@ import './app.css'
 
 const App = props => (
   <div className="app">
-    <button className="home" title="Home" aria-label="Home" onClick={()=>props.history.push('/')}>🏡</button>
+    <button className="home" title="Home" aria-label="Home" onClick={()=>props.history.push('/')}>
+      <span title="Home" aria-label="Home" role="img">
+        🏡
+      </span>
+    </button>
     <main className="main" >
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />
