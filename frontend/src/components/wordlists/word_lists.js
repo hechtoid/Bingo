@@ -23,7 +23,7 @@ function WordLists(props) {
                         </div>
                         <button title="New List">
                             <div>
-                                <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
+                                <span className="pencil" title="New List" aria-label="New List" role="img">
                                     ✏️
                                 </span>
                             </div>
@@ -54,7 +54,7 @@ function WordLists(props) {
                             </Link>
                         </div>
                             <div>
-                                {list.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} /> )}
+                                {list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> )}
                             </div>
                             <div className="delete" onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
                         </ul>

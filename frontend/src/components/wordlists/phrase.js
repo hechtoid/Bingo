@@ -4,7 +4,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 const Phrase = props => {
     return (
         <div className="phrase">
-        <li key={props.idx}>
+        <li>
           <div>
             <CopyToClipboard text={props.phrase}>
             <button title="Copy Phrase">

@@ -53,7 +53,7 @@ class ComposePhraseList extends React.Component {
 
   saveWordList(e) {
     e.preventDefault()
-    if (this.state.words.length>24){
+    if (this.state.words.length >= 4){
       this.props.saveWordList(this.state);
       this.props.history.push('/wordlists')
     }
@@ -89,7 +89,7 @@ class ComposePhraseList extends React.Component {
   }
 
   render() {
-    let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} idx={idx} key={idx} delete={this.deletePhraseAt(idx)}/> )
+    let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} delete={this.deletePhraseAt(idx)}/> )
     return (
       <div className="new-wordlist">
       <div>
@@ -101,7 +101,7 @@ class ComposePhraseList extends React.Component {
         </input>
         <div 
             className={
-              this.state.words.length > 24
+              this.state.words.length >= 4
               ? "save-button"
               : "save-button-disabled"
             } 
@@ -112,11 +112,11 @@ class ComposePhraseList extends React.Component {
         </div>
         <div 
           className={
-            this.state.words.length > 24 
+            this.state.words.length >= 24 
             ? ["hidden", "disclaimer"].join(' ')
             : "disclaimer"
         }>
-          Lists have a strict minimum of 24 words.
+          Lists need at least 24 words to play a standard 5x5 board without repeating. 
         </div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="add new word"></input>

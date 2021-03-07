@@ -49,12 +49,12 @@
     font-size: 23px;
     font-weight: 900;
     color: green;
-    overflow: hidden;
 }
-.wordlists ul .title div {
-    width: 100%;
+.wordlists ul .title a:first-child {
     color: green;
-    margin-left: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
 }
 .wordlists ul a{
     margin: 5px;
