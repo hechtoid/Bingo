@@ -113,10 +113,9 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-
 }
 
-.new-wordlist>div>div:nth-of-type(3) {
+.new-wordlist>div>div:nth-of-type(2) {
     background-color: lightgray;
     border: 5px solid black;
     font-weight: 900;
@@ -154,9 +153,21 @@
 }
 .new-wordlist div > input {
     font-size: 24px;
-    width: 70%;
+    width: 50%;
     padding: 5px 10px;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 10px 0px;
+    cursor: text !important;
+}
+.new-wordlist form div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.new-wordlist form div input {
+    font-size: 18px;
+    width: 100%;
+    margin: 10px;
 }
 .new-wordlist div div span {
     font-weight: 900;
@@ -197,9 +208,6 @@ button div {
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-}
-.new-wordlist form input {
-    margin: 5px;
 }
 .new-wordlist form input:last-of-type {
     cursor: pointer;
