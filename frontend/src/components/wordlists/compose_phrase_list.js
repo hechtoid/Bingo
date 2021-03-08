@@ -93,6 +93,24 @@ class ComposePhraseList extends React.Component {
     return (
       <div className="new-wordlist">
       <div>
+        <div className="title">
+          <input 
+            type="text" 
+            value={this.state.name} 
+            onChange={this.updateName()} 
+            onFocus={this.selectID}>
+          </input>
+        </div>
+        <div>
+            <span>
+              {this.state.words.length} 
+            </span>
+            phrases
+            <label>
+             &nbsp;/ UnListed
+            <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
+          </label>
+        </div>
         <div 
           className={ this.state.words.length >= 4
             ? "save-button"
@@ -108,24 +126,6 @@ class ComposePhraseList extends React.Component {
           : "disclaimer" }
         >
           Lists need at least 24 phrases to play a standard 5x5 board without repeats. 
-        </div>
-        <div className="title">
-          <label>
-              UnListed
-            <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
-          </label>
-          <input 
-            type="text" 
-            value={this.state.name} 
-            onChange={this.updateName()} 
-            onFocus={this.selectID}>
-          </input>
-          <div>
-            <span>
-              {this.state.words.length} 
-            </span>
-            phrases
-          </div>
         </div>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Add Phrase"></input>
