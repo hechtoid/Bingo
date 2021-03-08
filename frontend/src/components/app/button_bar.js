@@ -12,7 +12,7 @@ const msp = state => ({
 
 const mdp = dispatch => {
     return {
-        logout: () => {logout()(dispatch); closeUserModal()},
+        logout: () => {logout()(dispatch)},
     }
 }
 
