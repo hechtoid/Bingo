@@ -21,8 +21,8 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     const demoUser = {
-      handle: 'tester',
-      password: 'tester'
+      handle: 'DemoUser',
+      password: 'password'
     };
 
     const sleep = ms => new Promise(res => setTimeout(res, ms));
