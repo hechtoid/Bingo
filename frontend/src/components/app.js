@@ -1,7 +1,8 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import SplashPage from './splash/splash_page';
+import SplashPage from './app/splash_page';
+import ButtonBar from './app/button_bar';
 import SignupFormContainer from './session/signup_form_container';
 
 import ComposePhraseListContainer from './wordlists/compose_phrase_list_container';
@@ -13,11 +14,7 @@ import './app.css'
 
 const App = props => (
   <div className="app">
-    <button className="home" title="Home" aria-label="Home" onClick={()=>props.history.push('/')}>
-      <span title="Home" aria-label="Home" role="img">
-        🏡
-      </span>
-    </button>
+    <ButtonBar />
     <main className="main" >
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />
