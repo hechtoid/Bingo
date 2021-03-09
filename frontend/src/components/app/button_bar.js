@@ -34,7 +34,7 @@ return (
         : "" }
     </div>
     <a href="https://github.com/hechtoid/Bingo" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
-        <img src="/github.png" />
+        <img alt="GitHub Logo" src="/github.png" />
     </a>
     </div>
    )
