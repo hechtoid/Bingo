@@ -21,8 +21,8 @@ const App = props => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/wordlists/" component={WordListsContainer} />
         <ProtectedRoute exact path="/wordlists/new" component={ComposePhraseListContainer} />
-        <ProtectedRoute exact path="/wordlists/:id" component={ComposePhraseListContainer} />
-        <Route path="/game/:id" component={Game} />
+        <ProtectedRoute exact path="/wordlists/:id/:name" component={ComposePhraseListContainer} />
+        <Route path="/game/:id/:name" component={Game} />
       </Switch>
     </main>
   </div>
