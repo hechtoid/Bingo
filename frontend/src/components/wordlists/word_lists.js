@@ -13,12 +13,12 @@ function WordLists(props) {
         }
         fetchData();
       }, []);
-        return (
-            <div className="wordlists">
-            <div>
-                <div className="new">
-                    <Link to="/wordlists/new">
-                        <div>
+return (
+    <div className="wordlists">
+        <div>
+            <div className="new">
+                <Link to="/wordlists/new">
+                    <div>
                         <div className="title">
                             Compose New Phrase List 
                         </div>
@@ -29,49 +29,48 @@ function WordLists(props) {
                                 </span>
                             </div>
                         </button>   
-                        </div>
-                        <div>
-                            Make a New Phrase List to share with your Friends!                 
-                        </div>
-                    </Link>
-                    <div>
-                        or Click a Green Title to Start a Game!
                     </div>
+                    <div>
+                        Make a New Phrase List to share with your Friends!                 
+                    </div>
+                </Link>
+                <div>
+                    or Click a Green Title to Start a Game!
                 </div>
-                {props.lists.map( (list,idx) => {
-                    return(
-                        <ul key={idx}>
-                            <div className="title" title="Play Game">
-                                <div>
-                                    <Link to={{ pathname: `/game/${list._id}/${list.name}`, list }}>
-                                        {list.name}
-                                    </Link>   
-                                </div>
-
-                                <div>
-                                    <Link to={{ pathname: `/wordlists/${list._id}/${list.name}`, list }}>
-                                        <button title="Edit List">
-                                            <div>
+            </div>
+            { props.lists.map( (list,idx) => {
+                return (
+                    <ul key={idx}>
+                        <div className="title" title="Play Game">
+                            <div>
+                                <Link to={{ pathname: `/game/${list._id}/${list.name}`, list }}>
+                                    {list.name}
+                                </Link>   
+                            </div>
+                            <div>
+                                <Link to={{ pathname: `/wordlists/${list._id}/${list.name}`, list }}>
+                                    <button title="Edit List">
+                                        <div>
                                             <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
                                                 ✏️
                                             </span>
-                                            </div>
-                                        </button>
-                                    </Link>
-                                </div>
+                                        </div>
+                                    </button>
+                                </Link>
                             </div>
-                            <div>
-                                {list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> )}
-                            </div>
-                            <div className="delete" onClick={()=>props.removeWordList(list._id)}>DELETE LIST</div>
-                        </ul>
-                    )
-                })}
-
-            </div>
-            </div>
-        )
-    
+                        </div>
+                        <div>
+                            { list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> ) }
+                        </div>
+                        <div className="delete" onClick={()=>props.removeWordList(list._id)}>
+                            DELETE LIST
+                        </div>
+                    </ul>
+                )
+            }) }
+        </div>
+    </div>
+)
 }
 
 export default WordLists;
