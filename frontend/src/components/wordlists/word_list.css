@@ -62,8 +62,14 @@
     overflow-y: auto;
     width: 100%;
 }
+.wordlists ul .title > div:nth-child(2) {
+    height: 50%;
+}
+.wordlists ul .title button {
+    height: 100%;
+}
 .wordlists ul a{
-    margin: 5px;
+    height: 100%;
 }
 .wordlists ul div:nth-child(2) {
     overflow-x:hidden;
