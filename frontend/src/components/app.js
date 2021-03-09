@@ -22,7 +22,7 @@ const App = props => (
         <ProtectedRoute exact path="/wordlists/" component={WordListsContainer} />
         <ProtectedRoute exact path="/wordlists/new" component={ComposePhraseListContainer} />
         <ProtectedRoute exact path="/wordlists/:id/:name?" component={ComposePhraseListContainer} />
-        <Route exact path="/game/:id/:name?" component={Game} />
+        <Route exact path="/game/:id?/:name?" component={Game} />
       </Switch>
     </main>
   </div>

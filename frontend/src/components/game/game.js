@@ -43,7 +43,7 @@ class Game extends React.Component {
             })
         } else {
             this.setState({
-                phrases: ["Boring", "Default", "Words"]
+                phrases: ['Bee', 'Eye', 'En', 'Gee', 'Oh']
             }) 
         }
         
