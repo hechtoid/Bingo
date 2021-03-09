@@ -18,6 +18,7 @@ function WordLists(props) {
             <div>
                 <div className="new">
                     <Link to="/wordlists/new">
+                        <div>
                         <div className="title">
                             Compose New Phrase List 
                         </div>
@@ -28,6 +29,7 @@ function WordLists(props) {
                                 </span>
                             </div>
                         </button>   
+                        </div>
                         <div>
                             Make a New Phrase List to share with your Friends!                 
                         </div>
@@ -39,25 +41,25 @@ function WordLists(props) {
                 {props.lists.map( (list,idx) => {
                     return(
                         <ul key={idx}>
-                        <div className="title" title="Play Game">
+                            <div className="title" title="Play Game">
                                 <div>
-                            <Link to={{ pathname: `/game/${list._id}`, list }}>
-                                    {list.name}
-                            </Link>   
+                                    <Link to={{ pathname: `/game/${list._id}`, list }}>
+                                        {list.name}
+                                    </Link>   
                                 </div>
-                                <div>
 
-                            <Link to={{ pathname: `/wordlists/${list._id}`, list }}>
-                                <button title="Edit List">
-                                        <div>
-                                        <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
-                                            ✏️
-                                        </span>
-                                        </div>
-                                    </button>
-                            </Link>
+                                <div>
+                                    <Link to={{ pathname: `/wordlists/${list._id}`, list }}>
+                                        <button title="Edit List">
+                                            <div>
+                                            <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
+                                                ✏️
+                                            </span>
+                                            </div>
+                                        </button>
+                                    </Link>
                                 </div>
-                        </div>
+                            </div>
                             <div>
                                 {list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> )}
                             </div>

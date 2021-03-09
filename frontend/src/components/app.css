@@ -70,11 +70,41 @@ button {
 .splash {
     margin: 123px;
 }
+.login-form  {
+    width: 300px;
+}
+.login-form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.login-form div input {
+    width: unset;
+}
 .splash input {
     margin: 5px;
+    width: 280px;
+}
+.submit-btn {
+    font-weight: 900;
+}
+.demo-user-btn {
+    font-weight: 900;
+    color: green;
+}
+.demo-user-btn:hover {
+    cursor: pointer;
+}
+.submit-btn:hover {
+    cursor: pointer;
 }
 .splash ul {
     color: red;
+}
+.login-form p {
+    margin-left: 5px;
 }
 .signup-link {
     color: green !important;

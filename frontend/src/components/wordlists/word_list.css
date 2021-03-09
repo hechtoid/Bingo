@@ -9,11 +9,11 @@
     overflow-x: auto;
 }
 .wordlists .new {
-    width: 350px;  
+    width: 380px;  
 }
 .wordlists .new a{
     padding: 5px 15px;
-    width: 300px;
+    width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,9 +22,15 @@
     border-radius: 5px;
     margin: 5px;
     font-size: 18px;
+    font-weight: 900;
 }
 .wordlists .new .title {
     font-size: 36px;
+    width: 300px;
+    padding-bottom: 10px;
+}
+.wordlists .new button {
+    width: 100%;
 }
 .wordlists .new>div {
     font-size: 42px;
@@ -34,7 +40,7 @@
     margin-top: 125px;
 }
 .wordlists ul {
-    padding: 5px;
+    padding: 0px;
     min-width: 400px;
     width: 400px;
     border: 1px solid gray;
@@ -49,18 +55,22 @@
     justify-content: space-between;
     min-height: 80px;
     max-height: 80px;
-    width: 100%;
+    width: 380px;
     border-bottom: 3px solid black;
     margin-bottom: 5px;
     font-size: 23px;
     font-weight: 900;
-    color: green;
+    color: green !important;
+    margin: 10px;
 }
-.wordlists ul .title a:first-child {
-    color: green;
+.wordlists ul .title>div:first-child {
     overflow-x: hidden;
     overflow-y: auto;
-    width: 100%;
+    width: 360px;
+    margin: 0 5px 5px 0;
+}
+.wordlists .title a {
+    color: green !important;
 }
 .wordlists ul .title > div:nth-child(2) {
     height: 50%;
@@ -71,11 +81,11 @@
 .wordlists ul a{
     height: 100%;
 }
-.wordlists ul div:nth-child(2) {
+.wordlists ul>div:nth-child(2) {
     overflow-x:hidden;
     overflow-y:auto;
 }
-
+    
 .wordlists ul li{
     margin: 5px 10px;
 }
@@ -107,7 +117,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 .new-wordlist > div {
     border: 1px solid gray;
@@ -184,7 +193,7 @@
     min-height: 20px;
     min-width: 50%;
     max-width: 50%;
-    padding: 0;
+    padding: 10px;
 }
 ul li {
     margin: 5px auto;

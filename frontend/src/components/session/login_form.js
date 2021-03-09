@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     const demoUser = {
-      handle: 'DemoUser',
+      handle: 'GuestUser',
       password: 'password'
     };
 
@@ -106,11 +106,15 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             <br/>
-            <input className="demo-user-btn" type="submit" value="Demo User" onClick={this.demoLogin}/>
+            <div>
             <input className="submit-btn" id="submit-login" type="submit" value="Sign-in" />
+            <br></br>
+            <input className="demo-user-btn" type="submit" value="Guest User" onClick={this.demoLogin}/>
+            </div>
             {this.renderErrors()}
               <p className="signup-text">
                 Don't have an account? 
+                <br></br>
                 <Link className="signup-link" to={'/signup'}> Sign-up here!</Link>
               </p>
           </div>
