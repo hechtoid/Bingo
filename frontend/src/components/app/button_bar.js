@@ -19,19 +19,23 @@ const mdp = dispatch => {
 function ButtonBar(props) {
 return (
     <div className="buttonbar">
-
-    <button title="Home" onClick={()=>props.history.push('/')}>
-        <span title="Home" aria-label="Home" role="img">
-            🏡
-        </span>
-    </button> 
-    { props.loggedIn
-    ? <button title="Logout" onClick={()=>props.logout()}>
-        <span title="Logout" aria-label="Logout" role="img">
-            🚪
-        </span>
-    </button>
-    : "" }
+    <div>
+        <button title="Home" onClick={()=>props.history.push('/')}>
+            <span title="Home" aria-label="Home" role="img">
+                🏡
+            </span>
+        </button> 
+        { props.loggedIn
+        ? <button title="Sign-out" onClick={()=>props.logout()}>
+            <span title="Sign-out" aria-label="Sign-out" role="img">
+                🚪
+            </span>
+        </button>
+        : "" }
+    </div>
+    <a href="https://github.com/hechtoid/Bingo" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
+        <img src="/github.png" />
+    </a>
     </div>
    )
 }

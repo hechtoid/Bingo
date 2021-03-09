@@ -30,12 +30,27 @@ body{
     left: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.buttonbar div {
+    display: flex;
+    flex-direction: column;   
 }
 .buttonbar button {
     font-size: 50px;
     height: 80px;
     width: 80px;
     margin-top: 25px; 
+}
+.buttonbar img {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 25px;
 }
 .main{
     background-color: rgba(255, 255, 255, 0.94);
@@ -57,6 +72,9 @@ button {
 }
 .splash input {
     margin: 5px;
+}
+.splash ul {
+    color: red;
 }
 .signup-link {
     color: green !important;
