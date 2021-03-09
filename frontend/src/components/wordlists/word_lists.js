@@ -62,7 +62,7 @@ return (
                         <div>
                             { list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> ) }
                         </div>
-                        <div className="delete" onClick={()=>props.removeWordList(list._id)}>
+                        <div className="delete" onClick={() => props.removeWordList(list._id)}>
                             DELETE LIST
                         </div>
                     </ul>
