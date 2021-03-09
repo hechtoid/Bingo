@@ -5,9 +5,7 @@ class SplashPage extends React.Component {
 
   render() {
     return (
-     <div className="splash">
-        <h1>Internet Bingo</h1>
-       
+     <div className="splash">       
         <div className="splash-right-box">
           <LoginFormContainer/>
         </div>

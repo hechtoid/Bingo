@@ -57,12 +57,11 @@ class SignupForm extends React.Component {
     return (
       <div className="splash">
       <div> 
-          <br/>  
           <div className="signup-form-box">
+          <h1>Internet Bingo - Add User</h1>
+
             <form onSubmit={this.handleSubmit}>
               <div className="signup-form">
-                <br/>
-                <br/>
                   <input type="text"
                     className="input-field"
                     value={this.state.handle}
@@ -84,11 +83,11 @@ class SignupForm extends React.Component {
                     placeholder="Confirm Password"
                   />
                 <br/>
-                <input className="submit-btn" type="submit" value="Submit" />
+                <input className="submit-btn" type="submit" value="Create Account" />
                 {this.renderErrors()}
                   <p>
                     Already have an account?  
-                    <Link className="login-link" to={'/'}>Login</Link>
+                    <Link className="signup-link" to={'/'}> Sign-in here!</Link>
                   </p>
               </div>
             </form>

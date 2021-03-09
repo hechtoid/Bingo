@@ -87,9 +87,9 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form-box">
+      <h1>Internet Bingo</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
-            <br/>
               <input type="text"
                 className="input-field"
                 id="handle"
@@ -106,14 +106,12 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             <br/>
-            <input className="submit-btn" id="submit-login" type="submit" value="Submit" />
             <input className="demo-user-btn" type="submit" value="Demo User" onClick={this.demoLogin}/>
+            <input className="submit-btn" id="submit-login" type="submit" value="Sign-in" />
             {this.renderErrors()}
-            <br/>
               <p className="signup-text">
                 Don't have an account? 
-                <Link className="signup-link" to={'/signup'}>Signup</Link>
-                here!
+                <Link className="signup-link" to={'/signup'}> Sign-up here!</Link>
               </p>
           </div>
         </form>

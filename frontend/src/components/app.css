@@ -44,13 +44,21 @@ body{
     border-radius: 25px;
     box-sizing: border-box;
 }
-.splash {
-    margin: 123px;
-}
+
 .hidden {
     visibility: hidden;
 }
 
 button {
     cursor: pointer;
+}
+.splash {
+    margin: 123px;
+}
+.splash input {
+    margin: 5px;
+}
+.signup-link {
+    color: green !important;
+    font-weight: 900;
 }
