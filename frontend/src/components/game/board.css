@@ -87,7 +87,8 @@
 }
 
 .free-spot {
-    background-color: red !important;
+    background-color: #2D8CFF !important;
+    color: white;
     font-weight: 900;
     user-select: none;
     cursor: not-allowed;  
@@ -98,17 +99,22 @@
     justify-content: center;
     align-items: center;
 }
-.clicked {
-    background-color: red !important;
+.unclicked {
     user-select: none;
-
+    transition: 0.4s;
+    transition-timing-function: ease-out;
+}
+.clicked {
+    background-color: #2D8CFF !important;
+    color: white;
+    user-select: none;
+    transition: 0.2s;
+    transition-timing-function: ease-out;
 }
 .clicked:hover, .unclicked:hover {
     cursor: pointer;
 }
-.unclicked {
-    user-select: none;
-}
+
 
 .disabled {
     color: lightgray;
