@@ -124,7 +124,7 @@
 }
 .blackout td {
     font-weight: 900;
-    background-color: #223 !important;
+    background-color: #123 !important;
     color: white;
     transition: 0.8s;    
 }
