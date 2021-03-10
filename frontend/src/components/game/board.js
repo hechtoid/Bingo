@@ -4,6 +4,7 @@ function Board(props) {
     const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
     useEffect(() => free(), [props.free])    
+    //set midForFree variable and if set use it to check if needs to be accounted for
     const free = () => {
         if (props.free && props.size % 2 === 1) {
             let newBoard = gameBoard.slice()
@@ -84,7 +85,7 @@ function Board(props) {
         return win
     }
     const win = () => rows() || columns() || diagonalA() || diagonalB()
-    useEffect(() => {document.title = `Playing Board: ${props.name} - Internet Bingo`}, [props.name])
+    useEffect(() => {document.title = `Playing Board: ${props.name} ${props.size}x${props.size} - Internet Bingo`}, [props.name, props.size])
     let list = props.list.slice()
 return (
     <div className="game"> 

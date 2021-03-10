@@ -14,7 +14,7 @@ class Game extends React.Component {
             name: '',
             phrases: [],
             free: true,
-            repeat: false,
+            repeat: true,
             size: 5,
             key: 1
         }        
