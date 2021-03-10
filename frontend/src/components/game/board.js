@@ -1,47 +1,41 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 import './board.css';
 
-
-class Board extends React.Component {
-    constructor(props) {
-        super(props)
-        this.sizeArray = [...Array(this.props.size).keys()]
-        this.keyArray = []
-        this.state = this.boardmaker()
-        if (this.props.free && this.props.size % 2 === 1) {
-            let i = Math.floor(this.props.size / 2 )
-            this.freeKey = i+':'+i
+function Board(props) {
+    const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
+    const [gameBoard, setGameBoard] = useState(initialGameBoard)
+    useEffect(() => free(), [props.free])    
+    const free = () => {
+        if (props.free && props.size % 2 === 1) {
+            let newBoard = gameBoard.slice()
+            let mid = Math.floor(props.size / 2)
+            newBoard[mid][mid] = true
+            setGameBoard(newBoard)
         }
     }
-    
-    boardmaker = () => {
-        let board = {}
-        for (let i = 0; i < this.props.size; i++) {
-            for (let j = 0; j < this.props.size; j++) {
-                let key = i+':'+j
-                board[key] = false   
-                this.keyArray.push(key)            
-            } 
+    const clear = () => {
+        if (props.free && props.size % 2 === 1) {
+            let mid = Math.floor(props.size / 2)
+            initialGameBoard[mid][mid] = true
         }
-        return board
+        setGameBoard(initialGameBoard)
     }
-    clear = () => {
-        let board = {}
-        this.keyArray.map( key => board[key] = false )
-        this.setState(board)
+    const shuffle = () => {
+        clear();
+        props.shuffleList()
     }
-    shuffle = () => {
-        this.clear()
-        this.props.shuffleList()
+    const toggleGameBoardSquare = (idxV, idxH) => {
+        let newBoard = gameBoard.slice()
+        newBoard[idxV][idxH] = !newBoard[idxV][idxH]
+        setGameBoard(newBoard)
     }
-    rows = () => {
+    const rows = () => {
         let win
-        for (let i = 0; i < this.props.size; i++) {
+        for (let idxV = 0; idxV < props.size; idxV++) {
             let win = true
-            for (let j = 0; j < this.props.size; j++) {
-                if (this.state[i+':'+j] === false ) {
+            for (let idxH = 0; idxH < props.size; idxH++) {
+                if (gameBoard[idxV][idxH] === false ) {
                     win = false
                 }
             } 
@@ -49,12 +43,12 @@ class Board extends React.Component {
         }
         return win
     }
-    columns = () => {
+    const columns = () => {
         let win
-        for (let i = 0; i < this.props.size; i++) {
+        for (let idxH = 0; idxH < props.size; idxH++) {
             let win = true
-            for (let j = 0; j < this.props.size; j++) {
-                if (this.state[j+':'+i] === false ) {
+            for (let idxV = 0; idxV < props.size; idxV++) {
+                if (gameBoard[idxV][idxH] === false ) {
                     win = false
                 }
             } 
@@ -62,50 +56,64 @@ class Board extends React.Component {
         }
         return win
     }
-    diagonalA = () => {
+    const diagonalA = () => {
         let win = true
-        for (let i = 0; i < this.props.size; i++) {
-                if (this.state[i+':'+i] === false ) {
+        for (let i = 0; i < props.size; i++) {
+                if (gameBoard[i][i] === false ) {
                     win = false
                 }
         }
         return win
     }
-    diagonalB = () => {
+    const diagonalB = () => {
         let win = true
-        for (let i = 0; i < this.props.size; i++) {
-                if (this.state[i+':'+(this.props.size-1-i)] === false ) {
+        for (let i = 0; i < props.size; i++) {
+                if (gameBoard[i][(props.size-1-i)] === false ) {
                     win = false
                 }
         }
         return win
     }
-    
-    win = () => this.rows() || this.columns() || this.diagonalA() || this.diagonalB()
-    
-    blackout = () => this.keyArray.every( key => this.state[key] )
-    
-    free = () =>  {if (this.freeKey) {
-        if (!this.state[this.freeKey]) this.setState({ [this.freeKey]: true })
-    }}
-
-    componentDidMount() { this.free() }
-    componentDidUpdate() { 
-        document.title = `Playing Board: ${this.props.name} - Internet Bingo`
-        this.free() }
-
-render() {
-    let list = this.props.list.slice()
-    let board = 
-        <table><tbody>
-            { this.sizeArray.map( i => {
+    const blackout = () => {
+        let win = true
+        for (let idxV = 0; idxV < props.size; idxV++) {
+            for (let idxH = 0; idxH < props.size; idxH++) {
+                if (gameBoard[idxV][idxH] === false ) {
+                    win = false
+                }
+            } 
+        }
+        return win
+    }
+    const win = () => rows() || columns() || diagonalA() || diagonalB()
+    useEffect(() => {document.title = `Playing Board: ${props.name} - Internet Bingo`}, [props.name])
+    let list = props.list.slice()
+return (
+    <div className="game"> 
+        <div>
+            { win() 
+            ? <div className="win">BINGO</div>
+            : <div className="play">BINGO</div>
+            }
+            { blackout() 
+            ? <div className="win">BLACKOUT</div>
+            : <div className="play">BLACKOUT</div>
+            }
+        </div> 
+        <div>
+            <div className="thead">{props.name}</div>
+        <table>
+            <tbody>
+            { gameBoard.map( (row, idxV) => {
                 return (
-                    <tr key={i}>
-                        { this.sizeArray.map( j => {
-                            let key = i+':'+j
-                            if (this.freeKey && this.freeKey === key) {
-                                return (
-                                    <td className="free-spot" key={j}>
+                    <tr key={idxV}>
+                        { row.map( (square, idxH) => {
+                            if ( props.free 
+                                && props.size % 2 === 1
+                                && idxV === Math.floor(props.size / 2)
+                                && idxH === Math.floor(props.size / 2) ) 
+                                { return (
+                                    <td className="free-spot" key={idxH}>
                                         <div>
                                             FREE
                                         </div>
@@ -114,9 +122,9 @@ render() {
                             } else {
                                 return (
                                     <td 
-                                        key={j}
-                                        className={this.state[key]?"clicked":"unclicked"}
-                                        onClick={()=>this.setState({ [key]: !this.state[key] }) }
+                                        key={idxH}
+                                        className={square?"clicked":"unclicked"}
+                                        onClick={()=>toggleGameBoardSquare(idxV, idxH)}
                                     > 
                                     <div>
                                         {list.pop()}
@@ -128,54 +136,39 @@ render() {
                     </tr>
                 )
             }) }
-        </tbody></table>
-
-    return (
-        <div className="game"> 
-            <div>
-                { this.win() 
-                ? <div className="win">BINGO</div>
-                : <div className="play">BINGO</div>
-                }
-                { this.blackout() 
-                ? <div className="win">BLACKOUT</div>
-                : <div className="play">BLACKOUT</div>
-                }
-            </div> 
-            <div>
-                <div className="thead">{this.props.name}</div>
-                {board}
-            </div>
-            <div>
-                    <button onClick={this.clear}>CLEAR</button>
-                    <button onClick={this.shuffle}>CLEAR & SHUFFLE</button>
-                    <button onClick={this.props.smaller} disabled={this.props.size<=2}>smaller</button>
-                    <button onClick={this.props.bigger}>BIGGER</button>
-                    <label className={ this.props.size % 2 === 0 ? "disabled":"" }>
-                        <input 
-                            type="checkbox" 
-                            onChange={this.props.setFree} 
-                            checked={this.props.free && this.props.size % 2 === 1} 
-                            disabled={this.props.size % 2 === 0}
-                        /> 
-                        Free Square
-                    </label>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            onChange={this.props.setRepeat} 
-                            checked={this.props.repeat} 
-                        /> 
-                        Repeat Phrases
-                    </label>
-            </div>
-          
-
-
-    
+            </tbody>
+        </table>
         </div>
+        <div>
+            <button onClick={clear}>CLEAR</button>
+            <button onClick={shuffle}>CLEAR & SHUFFLE</button>
+            <button onClick={props.smaller} disabled={props.size<=2}>smaller</button>
+            <button onClick={props.bigger}>BIGGER</button>
+            <label className={ props.size % 2 === 0 ? "disabled":"" }>
+                <input 
+                    type="checkbox" 
+                    onChange={props.setFree} 
+                    checked={props.free && props.size % 2 === 1} 
+                    disabled={props.size % 2 === 0}
+                /> 
+                Free Square
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    onChange={props.setRepeat} 
+                    checked={props.repeat} 
+                /> 
+                Repeat Phrases
+            </label>
+        </div>
+        
+
+
+
+    </div>
     )
 }
-}
 
-export default withRouter(Board);
+
+export default Board;
