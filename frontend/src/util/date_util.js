@@ -1,0 +1,1 @@
+export const hotDate = () => `${new Date().toLocaleString('default', { month: 'long', day: '2-digit', year: 'numeric' })}`

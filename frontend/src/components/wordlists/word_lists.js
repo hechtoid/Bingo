@@ -35,7 +35,7 @@ return (
                     </div>
                 </Link>
                 <div>
-                    or Click a Green Title to Start a Game!
+                    Click a Green Title to Start a Game!
                 </div>
             </div>
             { props.lists.map( (list,idx) => {

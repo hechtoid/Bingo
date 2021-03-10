@@ -99,7 +99,9 @@ class ComposePhraseList extends React.Component {
             type="text" 
             value={this.state.name} 
             onChange={this.updateName()} 
-            onFocus={this.selectID}>
+            onFocus={this.selectID}
+            autoFocus
+            >
           </input>
           <label>
             <input type="checkbox" onChange={this.updateListed()} checked={this.state.unlisted} />
