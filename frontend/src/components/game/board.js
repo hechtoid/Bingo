@@ -104,52 +104,52 @@ return (
         </div> 
         <div>
             <div className="thead">{props.name}</div>
-        <table className={ blackout ? "blackout":"" }>
-            <tbody>
-            { gameBoard.map( (row, idxV) => {
-                return (
-                    <tr key={idxV}>
-                        { row.map( (square, idxH) => {
-                            if ( midForFree
-                                && idxV === midForFree
-                                && idxH === midForFree ) 
-                                { return (
-                                    <td className={ win ? ["winner", "free-spot"].join(' ') : "free-spot" } key={idxH}>
+            <table className={ blackout ? "blackout" : "" }>
+                <tbody>
+                { gameBoard.map( (row, idxV) => {
+                    return (
+                        <tr key={idxV}>
+                            { row.map( (square, idxH) => {
+                                if ( midForFree
+                                    && idxV === midForFree
+                                    && idxH === midForFree ) 
+                                    { return (
+                                        <td className={ win ? ["winner", "free-spot"].join(' ') : "free-spot" } key={idxH}>
+                                            <div>
+                                                FREE
+                                            </div>
+                                        </td>
+                                    )    
+                                } else {
+                                    return (
+                                        <td 
+                                            key={idxH}
+                                            className={ square
+                                                        ? win 
+                                                            ? "winner"
+                                                            : "clicked"
+                                                        : "unclicked" }
+                                            onClick={() => toggleGameBoardSquare(idxV, idxH)}
+                                        > 
                                         <div>
-                                            FREE
+                                            {list.pop()}
                                         </div>
-                                    </td>
-                                )    
-                            } else {
-                                return (
-                                    <td 
-                                        key={idxH}
-                                        className={ square
-                                                    ? win 
-                                                        ? "winner"
-                                                        : "clicked"
-                                                    :"unclicked" }
-                                        onClick={()=>toggleGameBoardSquare(idxV, idxH)}
-                                    > 
-                                    <div>
-                                        {list.pop()}
-                                    </div>
-                                    </td>
-                                )
-                            }
-                        })}
-                    </tr>
-                )
-            }) }
-            </tbody>
-        </table>
+                                        </td>
+                                    )
+                                }
+                            })}
+                        </tr>
+                    )
+                }) }
+                </tbody>
+            </table>
         </div>
         <div>
             <button onClick={clear}>CLEAR</button>
             <button onClick={shuffleThis}>CLEAR & SHUFFLE</button>
             <button onClick={props.smaller} disabled={props.size<=2}>smaller</button>
             <button onClick={props.bigger}>BIGGER</button>
-            <label className={ props.size % 2 === 0 ? "disabled":"" }>
+            <label className={ props.size % 2 === 0 ? "disabled" : "" }>
                 <input 
                     type="checkbox" 
                     onChange={props.setFree} 
@@ -170,6 +170,5 @@ return (
     </div>
     )
 }
-
 
 export default Board;
