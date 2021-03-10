@@ -91,11 +91,13 @@
 }
 
 .free-spot {
-    background-color: #2D8CFF !important;
     color: white;
     font-weight: 900;
     user-select: none;
-    cursor: not-allowed;  
+    cursor: not-allowed !important;  
+    background-color: #2D8CFF !important;
+    transition: 0.2s;
+
 }
 .free-spot div {
     font-size: 36px;
@@ -105,15 +107,28 @@
 }
 .unclicked {
     user-select: none;
-    transition: 0.2s;
+    transition: 0.4s;
 }
 .clicked {
     background-color: #2D8CFF !important;
     color: white;
     user-select: none;
     transition: 0.2s;
+    font-weight: 900;
 }
-.clicked:hover, .unclicked:hover {
+.winner {
+    font-weight: 900;
+    background-color: #FF372D !important;
+    color: white;
+    transition: 0.4s;
+}
+.blackout td {
+    font-weight: 900;
+    background-color: #223 !important;
+    color: white;
+    transition: 0.8s;    
+}
+.clicked:hover, .unclicked:hover, .winner:hover {
     cursor: pointer;
 }
 

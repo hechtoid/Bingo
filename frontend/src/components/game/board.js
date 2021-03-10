@@ -1,5 +1,61 @@
 import React, { useState, useEffect } from 'react';
 
+const rows = (gameBoard, size) => {
+    let win
+    for (let idxV = 0; idxV < size; idxV++) {
+        let win = true
+        for (let idxH = 0; idxH < size; idxH++) {
+            if (gameBoard[idxV][idxH] === false ) {
+                win = false
+            }
+        } 
+        if (win) { return win }
+    }
+    return win
+}
+const columns = (gameBoard, size) => {
+    let win
+    for (let idxH = 0; idxH < size; idxH++) {
+        let win = true
+        for (let idxV = 0; idxV < size; idxV++) {
+            if (gameBoard[idxV][idxH] === false ) {
+                win = false
+            }
+        } 
+        if (win) { return win }
+    }
+    return win
+}
+const diagonalA = (gameBoard, size) => {
+    let win = true
+    for (let i = 0; i < size; i++) {
+            if (gameBoard[i][i] === false ) {
+                win = false
+            }
+    }
+    return win
+}
+const diagonalB = (gameBoard, size) => {
+    let win = true
+    for (let i = 0; i < size; i++) {
+            if (gameBoard[i][(size-1-i)] === false ) {
+                win = false
+            }
+    }
+    return win
+}
+const blackoutCheck = (gameBoard, size) => {
+    let win = true
+    for (let idxV = 0; idxV < size; idxV++) {
+        for (let idxH = 0; idxH < size; idxH++) {
+            if (gameBoard[idxV][idxH] === false ) {
+                win = false
+            }
+        } 
+    }
+    return win
+}
+
 function Board(props) {
     const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
@@ -29,79 +85,28 @@ function Board(props) {
         newBoard[idxV][idxH] = !newBoard[idxV][idxH]
         setGameBoard(newBoard)
     }
-    const rows = () => {
-        let win
-        for (let idxV = 0; idxV < props.size; idxV++) {
-            let win = true
-            for (let idxH = 0; idxH < props.size; idxH++) {
-                if (gameBoard[idxV][idxH] === false ) {
-                    win = false
-                }
-            } 
-            if (win) { return win }
-        }
-        return win
-    }
-    const columns = () => {
-        let win
-        for (let idxH = 0; idxH < props.size; idxH++) {
-            let win = true
-            for (let idxV = 0; idxV < props.size; idxV++) {
-                if (gameBoard[idxV][idxH] === false ) {
-                    win = false
-                }
-            } 
-            if (win) { return win }
-        }
-        return win
-    }
-    const diagonalA = () => {
-        let win = true
-        for (let i = 0; i < props.size; i++) {
-                if (gameBoard[i][i] === false ) {
-                    win = false
-                }
-        }
-        return win
-    }
-    const diagonalB = () => {
-        let win = true
-        for (let i = 0; i < props.size; i++) {
-                if (gameBoard[i][(props.size-1-i)] === false ) {
-                    win = false
-                }
-        }
-        return win
-    }
-    const blackout = () => {
-        let win = true
-        for (let idxV = 0; idxV < props.size; idxV++) {
-            for (let idxH = 0; idxH < props.size; idxH++) {
-                if (gameBoard[idxV][idxH] === false ) {
-                    win = false
-                }
-            } 
-        }
-        return win
-    }
-    const win = () => rows() || columns() || diagonalA() || diagonalB()
+    const blackout = blackoutCheck(gameBoard, props.size)
+    const win = rows(gameBoard, props.size) 
+                || columns(gameBoard, props.size) 
+                || diagonalA(gameBoard, props.size) 
+                || diagonalB(gameBoard, props.size)
     useEffect(() => {document.title = `Playing Board: ${props.name} ${props.size}x${props.size} - Internet Bingo`}, [props.name, props.size])
     let list = props.list.slice()
 return (
     <div className="game"> 
         <div>
-            { win() 
+            { win 
             ? <div className="win">BINGO</div>
             : <div className="play">BINGO</div>
             }
-            { blackout() 
+            { blackout 
             ? <div className="win">BLACKOUT</div>
             : <div className="play">BLACKOUT</div>
             }
         </div> 
         <div>
             <div className="thead">{props.name}</div>
-        <table>
+        <table className={ blackout ? "blackout":"" }>
             <tbody>
             { gameBoard.map( (row, idxV) => {
                 return (
@@ -112,7 +117,7 @@ return (
                                 && idxV === Math.floor(props.size / 2)
                                 && idxH === Math.floor(props.size / 2) ) 
                                 { return (
-                                    <td className="free-spot" key={idxH}>
+                                    <td className={ win?["winner", "free-spot"].join(' '): "free-spot" } key={idxH}>
                                         <div>
                                             FREE
                                         </div>
@@ -122,7 +127,11 @@ return (
                                 return (
                                     <td 
                                         key={idxH}
-                                        className={square?"clicked":"unclicked"}
+                                        className={ square
+                                                    ? win 
+                                                        ? "winner"
+                                                        : "clicked"
+                                                    :"unclicked" }
                                         onClick={()=>toggleGameBoardSquare(idxV, idxH)}
                                     > 
                                     <div>
