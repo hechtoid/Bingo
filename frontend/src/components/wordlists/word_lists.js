@@ -43,12 +43,12 @@ return (
                     <ul key={idx}>
                         <div className="title" title="Play Game">
                             <div>
-                                <Link to={{ pathname: `/game/${list._id}/${list.name}`, list }}>
+                                <Link to={{ pathname: `/game/${list._id}/${encodeURIComponent(list.name)}`, list }}>
                                     {list.name}
                                 </Link>   
                             </div>
                             <div>
-                                <Link to={{ pathname: `/wordlists/${list._id}/${list.name}`, list }}>
+                                <Link to={{ pathname: `/wordlists/${list._id}/${encodeURIComponent(list.name)}`, list }}>
                                     <button title="Edit List">
                                         <div>
                                             <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
