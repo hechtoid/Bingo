@@ -63,7 +63,7 @@
     color: green !important;
     margin: 10px;
 }
-.wordlists ul .title>div:first-child {
+.wordlists ul .title > div:first-child {
     overflow-x: hidden;
     overflow-y: auto;
     width: 360px;
