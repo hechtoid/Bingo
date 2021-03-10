@@ -59,20 +59,18 @@ const blackoutCheck = (gameBoard, size) => {
 function Board(props) {
     const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
+    let midForFree = props.free && props.size % 2 === 1 ? Math.floor(props.size / 2) : false
     useEffect(() => free(), [props.free])    
-    //set midForFree variable and if set use it to check if needs to be accounted for
     const free = () => {
-        if (props.free && props.size % 2 === 1) {
+        if (midForFree) {
             let newBoard = gameBoard.slice()
-            let mid = Math.floor(props.size / 2)
-            newBoard[mid][mid] = true
+            newBoard[midForFree][midForFree] = true
             setGameBoard(newBoard)
         }
     }
     const clear = () => {
-        if (props.free && props.size % 2 === 1) {
-            let mid = Math.floor(props.size / 2)
-            initialGameBoard[mid][mid] = true
+        if (midForFree) {
+            initialGameBoard[midForFree][midForFree] = true
         }
         setGameBoard(initialGameBoard)
     }
@@ -112,12 +110,11 @@ return (
                 return (
                     <tr key={idxV}>
                         { row.map( (square, idxH) => {
-                            if ( props.free 
-                                && props.size % 2 === 1
-                                && idxV === Math.floor(props.size / 2)
-                                && idxH === Math.floor(props.size / 2) ) 
+                            if ( midForFree
+                                && idxV === midForFree
+                                && idxH === midForFree ) 
                                 { return (
-                                    <td className={ win?["winner", "free-spot"].join(' '): "free-spot" } key={idxH}>
+                                    <td className={ win ? ["winner", "free-spot"].join(' ') : "free-spot" } key={idxH}>
                                         <div>
                                             FREE
                                         </div>
@@ -156,7 +153,7 @@ return (
                 <input 
                     type="checkbox" 
                     onChange={props.setFree} 
-                    checked={props.free && props.size % 2 === 1} 
+                    checked={midForFree} 
                     disabled={props.size % 2 === 0}
                 /> 
                 Free Square
@@ -170,10 +167,6 @@ return (
                 Repeat Phrases
             </label>
         </div>
-        
-
-
-
     </div>
     )
 }
