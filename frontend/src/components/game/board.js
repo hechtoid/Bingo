@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import './board.css';
-
 function Board(props) {
     const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
@@ -21,7 +19,7 @@ function Board(props) {
         }
         setGameBoard(initialGameBoard)
     }
-    const shuffle = () => {
+    const shuffleThis = () => {
         clear();
         props.shuffleList()
     }
@@ -39,7 +37,7 @@ function Board(props) {
                     win = false
                 }
             } 
-            if (win) return win
+            if (win) { return win }
         }
         return win
     }
@@ -52,7 +50,7 @@ function Board(props) {
                     win = false
                 }
             } 
-            if (win) return win
+            if (win) { return win }
         }
         return win
     }
@@ -141,7 +139,7 @@ return (
         </div>
         <div>
             <button onClick={clear}>CLEAR</button>
-            <button onClick={shuffle}>CLEAR & SHUFFLE</button>
+            <button onClick={shuffleThis}>CLEAR & SHUFFLE</button>
             <button onClick={props.smaller} disabled={props.size<=2}>smaller</button>
             <button onClick={props.bigger}>BIGGER</button>
             <label className={ props.size % 2 === 0 ? "disabled":"" }>

@@ -5,6 +5,7 @@ import { getWordList } from '../../util/word_list_api_util';
 import shuffle from '../../util/array_shuffle';
 
 import Board from './board';
+import './board.css';
 
 class Game extends React.Component {
     constructor(props) {
@@ -21,7 +22,6 @@ class Game extends React.Component {
     componentDidMount() {
         this.makeList()
     }
-
     makeList = () => {
         if (this.props.location.list) {
             this.setState({
@@ -69,7 +69,6 @@ class Game extends React.Component {
         this.setState({
             size: this.state.size + 1,
             key: this.state.key + 1
-
         })
     }
     smaller = () => {
@@ -106,12 +105,6 @@ render() {
         </div>
     )
 }
-
-
-
-
 }
-
-
 
 export default withRouter(Game)

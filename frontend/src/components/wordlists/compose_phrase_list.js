@@ -54,14 +54,14 @@ class ComposePhraseList extends React.Component {
 
   saveWordList(e) {
     e.preventDefault()
-    if (this.state.words.length >= 3){
+    if (this.state.words.length >= 3) {
       this.props.saveWordList(this.state);
       this.props.history.push('/wordlists')
     }
   }
   handleSubmit(e) {
     e.preventDefault()
-    if (e.target[0].value.length>0){
+    if (e.target[0].value.length>0) {
       this.setState({
         words: [...this.state.words, e.target[0].value]
       })
