@@ -59,8 +59,8 @@ const blackoutCheck = (gameBoard, size) => {
 function Board(props) {
     const initialGameBoard = Array.from(Array(props.size), () => Array.from(Array(props.size), () => false))
     const [gameBoard, setGameBoard] = useState(initialGameBoard)
-    let midForFree = props.free && props.size % 2 === 1 ? Math.floor(props.size / 2) : false
     useEffect(() => free(), [props.free])    
+    const midForFree = props.free && props.size % 2 === 1 ? Math.floor(props.size / 2) : false
     const free = () => {
         if (midForFree) {
             let newBoard = gameBoard.slice()
@@ -137,7 +137,7 @@ return (
                                         </td>
                                     )
                                 }
-                            })}
+                            }) }
                         </tr>
                     )
                 }) }
