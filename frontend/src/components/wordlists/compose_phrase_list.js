@@ -60,11 +60,11 @@ class ComposePhraseList extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    if (e.currentTarget.firstChild.value.length>0){
+    if (e.target[0].value.length>0){
       this.setState({
-        words: [...this.state.words, e.currentTarget.firstChild.value]
+        words: [...this.state.words, e.target[0].value]
       })
-      e.currentTarget.firstChild.value = ''
+      e.target[0].value = ''
     }
   }
 
