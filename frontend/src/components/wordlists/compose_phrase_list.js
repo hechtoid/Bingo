@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import Phrase from './phrase'
 
 import { getWordList } from '../../util/word_list_api_util';
+import { hotDate } from '../../util/date_util';
 
 import './word_list.css'
 
@@ -37,13 +38,13 @@ class ComposePhraseList extends React.Component {
         this.setState(res.data)
       } )
       .catch( this.setState({
-        name: `${this.props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
+        name: `${this.props.currentUser.handle}'s New Phrase List - ${hotDate()}`,
         unlisted: false,
         words: []      
       }) )
     } else {
       this.setState({
-        name: `${this.props.currentUser.handle}'s New Phrase List ${new Date().toLocaleDateString()}`,
+        name: `${this.props.currentUser.handle}'s New Phrase List - ${hotDate()}`,
         unlisted: false,
         words: []      
       })
