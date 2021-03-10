@@ -44,6 +44,12 @@ const diagonalB = (gameBoard, size) => {
     }
     return win
 }
+const winCheck = (gameBoard, size) => {
+    return (rows(gameBoard, size) 
+        || columns(gameBoard, size) 
+        || diagonalA(gameBoard, size) 
+        || diagonalB(gameBoard, size))
+}
 const blackoutCheck = (gameBoard, size) => {
     let win = true
     for (let idxV = 0; idxV < size; idxV++) {
@@ -84,10 +90,7 @@ function Board(props) {
         setGameBoard(newBoard)
     }
     const blackout = blackoutCheck(gameBoard, props.size)
-    const win = rows(gameBoard, props.size) 
-                || columns(gameBoard, props.size) 
-                || diagonalA(gameBoard, props.size) 
-                || diagonalB(gameBoard, props.size)
+    const win = winCheck(gameBoard, props.size)
     useEffect(() => {document.title = `Playing Board: ${props.name} ${props.size}x${props.size} - Internet Bingo`}, [props.name, props.size])
     let list = props.list.slice()
 return (
