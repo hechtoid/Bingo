@@ -56,7 +56,8 @@ class ComposePhraseList extends React.Component {
     e.preventDefault()
     if (this.state.words.length >= 3) {
       this.props.saveWordList(this.state);
-      this.props.history.push('/wordlists')
+      this.props.history.push({ pathname: `/game/new/${encodeURIComponent(this.state.name)}`, list: {words: this.state.words, name: this.state.name, _id: 'new'} })
+      // get _id from the API response?
     }
   }
   handleSubmit(e) {
