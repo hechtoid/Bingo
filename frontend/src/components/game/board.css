@@ -108,6 +108,7 @@
 .unclicked {
     user-select: none;
     transition: 0.4s;
+    cursor: pointer;
 }
 .clicked {
     background-color: #2D8CFF !important;
@@ -115,12 +116,15 @@
     user-select: none;
     transition: 0.2s;
     font-weight: 900;
+    cursor: pointer;
 }
 .winner {
     font-weight: 900;
     background-color: #FF372D !important;
     color: white;
     transition: 0.4s;
+    cursor: pointer;
+
 }
 .blackout td {
     font-weight: 900;
@@ -128,11 +132,6 @@
     color: white;
     transition: 0.8s;    
 }
-.clicked:hover, .unclicked:hover, .winner:hover {
-    cursor: pointer;
-}
-
-
 .disabled {
     color: lightgray;
 }

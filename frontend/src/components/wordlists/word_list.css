@@ -108,8 +108,6 @@
     display: flex;
     justify-content: center;
     width: 60%;
-}
-.wordlists .delete:hover {
     cursor: pointer;
 }
 .new-wordlist {
@@ -143,12 +141,10 @@
 }
 .save-button {
     color: green;  
+    cursor: pointer;
 }
 .save-button-disabled {
     color: gray;
-}
-.save-button:hover {
-    cursor: pointer;
 }
 .disclaimer {
     font-style: oblique;
@@ -160,7 +156,24 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
+}
+.new-wordlist .title button  {
+    max-height: 80px;
+    height: 80px;
+    max-width: 80px;
+    width: 80px;
+    margin-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.new-wordlist .title button div {
+    max-height: 80px;
+    max-width: 80px;
+    font-size: 42px;
+    margin-left: 10px;
 }
 .new-wordlist .title label {
     display: flex;
@@ -209,9 +222,6 @@ ul div li:hover {
 
 ul li button {
     margin: 0 5px 3px 0;
-}
-
-ul li button:hover {
     cursor: pointer;
 }
 button div {

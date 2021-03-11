@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import Phrase from './phrase'
 
@@ -95,6 +95,15 @@ class ComposePhraseList extends React.Component {
       <div className="new-wordlist">
       <div>
         <div className="title">
+          <Link to={`/game/${this.state._id}`}>
+            <button title="Start Game">
+              <div>
+                <span title="Start Game" aria-label="Start Game" role="img">
+                  🎰    
+                </span>
+              </div>
+            </button>
+          </Link>
           <input 
             type="text" 
             value={this.state.name} 
