@@ -10,10 +10,9 @@ import merge from 'lodash/merge';
         return newState;
       case RECEIVE_NEW_WORD_LIST:
         newState = merge({}, state);
-        newState.user = [action.wordList.data, ...newState.user]
+        newState.user = newState.user.length ? [action.wordList.data, ...newState.user] : [action.wordList.data]
         return newState;
       case REMOVE_WORD_LIST:
-        console.log(`removing ${action.id}`)
         newState = merge({}, state);
         newState.user = newState.user.filter( list => list._id !== action.id)
         return newState;
