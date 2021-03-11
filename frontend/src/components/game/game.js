@@ -26,14 +26,16 @@ class Game extends React.Component {
         if (this.props.location.list) {
             this.setState({
                 phrases: shuffle(this.props.location.list.words),
-                name: this.props.location.list.name
+                name: this.props.location.list.name,
+                _id: this.props.location.list._id
             }) 
         } else if (this.props.match.params.id) { 
             getWordList(this.props.match.params.id)
             .then( res => {
                 this.setState({
                     phrases: shuffle(res.data.words),
-                    name: res.data.name
+                    name: res.data.name,
+                    _id: res.data._id
                 }) 
             } )
             .catch( res => {
@@ -100,6 +102,7 @@ render() {
                 size={this.state.size} 
                 bigger={this.bigger}
                 smaller={this.smaller}
+                id={this.state._id}
                 key={this.state.key}
             />
         </div>

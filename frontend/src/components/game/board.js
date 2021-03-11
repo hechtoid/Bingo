@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const rows = (gameBoard, size) => {
     let win
@@ -11,10 +12,10 @@ const rows = (gameBoard, size) => {
         } 
         if (win) { return win }
     }
-    return win
-}
-const columns = (gameBoard, size) => {
-    let win
+    // return win
+// }
+// const columns = (gameBoard, size) => {
+    // let win
     for (let idxH = 0; idxH < size; idxH++) {
         let win = true
         for (let idxV = 0; idxV < size; idxV++) {
@@ -46,7 +47,7 @@ const diagonalB = (gameBoard, size) => {
 }
 const winCheck = (gameBoard, size) => {
     return (rows(gameBoard, size) 
-        || columns(gameBoard, size) 
+        // || columns(gameBoard, size) 
         || diagonalA(gameBoard, size) 
         || diagonalB(gameBoard, size))
 }
@@ -106,7 +107,24 @@ return (
             }
         </div> 
         <div>
-            <div className="thead">{props.name}</div>
+            <div className="thead">
+                { props.id ? 
+                    <Link to={`/wordlists/${props.id}`}>
+                        <button title="Edit List">
+                            <div>
+                                <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
+                                    ✏️
+                                </span>
+                            </div>
+                        </button>
+                    </Link>
+                    : "" }
+                <div>
+                    {props.name}
+                </div>   
+                <div>
+                </div>   
+            </div>
             <table className={ blackout ? "blackout" : "" }>
                 <tbody>
                 { gameBoard.map( (row, idxV) => {
