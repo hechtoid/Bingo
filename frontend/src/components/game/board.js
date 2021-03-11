@@ -94,6 +94,8 @@ function Board(props) {
     const win = winCheck(gameBoard, props.size)
     useEffect(() => {document.title = `Playing Board: ${props.name} ${props.size}x${props.size} - Internet Bingo`}, [props.name, props.size])
     let list = props.list.slice()
+
+    
 return (
     <div className="game"> 
         <div>
@@ -108,8 +110,8 @@ return (
         </div> 
         <div>
             <div className="thead">
-                { props.id ? 
-                    <Link to={`/wordlists/${props.id}`}>
+                { props._id ? 
+                    <Link to={ {pathname: `/wordlists/${props._id}`, list: {words: props.list, name: props.name, _id: props._id}} }>
                         <button title="Edit List">
                             <div>
                                 <span className="pencil" title="Edit List" aria-label="Edit List" role="img">

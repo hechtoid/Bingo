@@ -91,11 +91,14 @@ class ComposePhraseList extends React.Component {
 
   render() {
     let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} delete={this.deletePhraseAt(idx)}/> )
+    let gameLink = this.state._id 
+                ? { pathname: `/game/${this.state._id}`, list: this.state }
+                : { pathname: `/game/new`, list: {words: this.state.words, name: this.state.name, _id: 'new'} }            
     return (
       <div className="new-wordlist">
       <div>
         <div className="title">
-          <Link to={`/game/${this.state._id}`}>
+          <Link to={gameLink}>
             <button title="Start Game">
               <div>
                 <span title="Start Game" aria-label="Start Game" role="img">

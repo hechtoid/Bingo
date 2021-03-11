@@ -102,7 +102,7 @@ render() {
                 size={this.state.size} 
                 bigger={this.bigger}
                 smaller={this.smaller}
-                id={this.state._id}
+                _id={this.state._id}
                 key={this.state.key}
             />
         </div>
