@@ -52,12 +52,12 @@ class ComposePhraseList extends React.Component {
   }
 
 
-  saveWordList(e) {
+  saveWordList(e, done) {
     e.preventDefault()
     if (this.state.words.length >= 3) {
       this.props.saveWordList(this.state);
       this.props.history.push({ pathname: `/game/new/${encodeURIComponent(this.state.name)}`, list: {words: this.state.words, name: this.state.name, _id: 'new'} })
-      // get _id from the API response?
+      // get _id from the API response? push only from redux with response?
     }
   }
   handleSubmit(e) {
