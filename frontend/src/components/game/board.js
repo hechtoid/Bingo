@@ -110,8 +110,8 @@ return (
         </div> 
         <div>
             <div className="thead">
-                { props._id ? 
-                    <Link to={ {pathname: `/wordlists/${props._id}`, list: {words: props.list, name: props.name, _id: props._id}} }>
+                { props.link ? 
+                    <Link to={props.link}>
                         <button title="Edit List">
                             <div>
                                 <span className="pencil" title="Edit List" aria-label="Edit List" role="img">

@@ -89,6 +89,7 @@ class Game extends React.Component {
     }
 render() {
     let phrases = this.phraseLister()
+    let linkList = {pathname: `/wordlists/${this.state._id}/${encodeURIComponent(this.state.name)}`, list: {words: this.state.phrases, name: this.state.name, _id: this.state._id}} 
     return (
         <div className="games">
             <Board 
@@ -102,7 +103,7 @@ render() {
                 size={this.state.size} 
                 bigger={this.bigger}
                 smaller={this.smaller}
-                _id={this.state._id}
+                link={linkList}
                 key={this.state.key}
             />
         </div>
