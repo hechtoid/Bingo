@@ -109,7 +109,6 @@
     overflow-x: hidden;
     user-select:text;
 }
-
 .free-spot {
     color: white;
     font-weight: 900;
@@ -154,4 +153,35 @@
 }
 .disabled {
     color: lightgray;
+}
+
+@media screen and (max-width: 1600px) {
+    .game table {
+        border: 3px solid black;
+        padding: 1px;
+        border-radius: 5px;
+        font-family: sans-serif;
+        border-spacing: 3px;
+    }
+    .game table td {
+    }
+    .game table td div {
+        font-size: 14px;
+        margin: 3px;
+        max-width: 64px;
+        width: 64px;
+        max-height: 64px;
+        height: 64px;
+    }
+    .free-spot div {
+        font-size: 23px;
+    }
+    .game > div:last-child button {
+        padding: 10px;
+        margin: 20px;
+        font-size: 20px;
+    }
+    .game label {
+        font-size: 14px;
+    }
 }
