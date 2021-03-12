@@ -76,6 +76,7 @@
     font-size: 40px;
     font-weight: 900;
     cursor: pointer;
+    transition: 0.4s;
 }
 .game label {
     font-size: 23px;
@@ -83,6 +84,7 @@
     font-family: sans-serif;
     width: 120%;
     margin-left: 25px;
+    transition: 0.4s;
 }
 .game label input {
     margin: 5px;
@@ -93,6 +95,7 @@
     border-radius: 10px;
     font-family: sans-serif;
     border-spacing: 5px;
+    transition: 0.4s;
 }
 .game table td {
     background-color: white;
@@ -108,6 +111,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     user-select:text;
+    transition: 0.4s;
 }
 .free-spot {
     color: white;
@@ -116,13 +120,13 @@
     cursor: not-allowed !important;  
     background-color: #2D8CFF !important;
     transition: 0.2s;
-
 }
 .free-spot div {
     font-size: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.4s;
 }
 .unclicked {
     user-select: none;
@@ -162,6 +166,7 @@
         border-radius: 5px;
         font-family: sans-serif;
         border-spacing: 3px;
+        transition: 0.4s;
     }
     .game table td {
     }
@@ -172,16 +177,20 @@
         width: 64px;
         max-height: 64px;
         height: 64px;
+        transition: 0.4s;
     }
     .free-spot div {
         font-size: 23px;
+        transition: 0.4s;
     }
     .game > div:last-child button {
         padding: 10px;
         margin: 20px;
         font-size: 20px;
+        transition: 0.4s;
     }
     .game label {
         font-size: 14px;
+        transition: 0.4s;
     }
 }
