@@ -99,7 +99,11 @@
    font-family: serif;
    font-size: 23px;
 }
-.wordlists ul div:last-child {
+.wordlists ul>div:last-child {
+    display: flex;
+    justify-content: center;
+}
+.wordlists .delete div {
     display: flex;
     justify-content: center;
 }
@@ -261,13 +265,13 @@ button div {
 .new-wordlist button .pencil {
     font-size: 18px;
 }
-.new-wordlist form {
+.new-wordlist > div > form {
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
 }
-.new-wordlist form input:last-of-type {
+.new-wordlist form div input:last-of-type {
     cursor: pointer;
 }
 .new-wordlist a div {
@@ -277,4 +281,12 @@ button div {
     border-radius: 5px;
     width: 500px;
     padding: 5px 15px;
+}
+.phrase li > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.phrase li input {
+    min-width: 300%;
 }

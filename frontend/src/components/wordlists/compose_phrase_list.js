@@ -83,13 +83,11 @@ class ComposePhraseList extends React.Component {
     }
   }
   editPhraseAt(idx, str) {
-    return e => {
       let words = this.state.words
       words[idx] = str
       this.setState({
         words
       })
-    }
   }
   deletePhraseAt(idx) {
     return e => {
