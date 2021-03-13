@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveWordList } from '../../actions/word_list_actions';
+import { saveWordList, editWordList } from '../../actions/word_list_actions';
 import ComposePhraseList from './compose_phrase_list';
 
 
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     saveWordList: data => dispatch(saveWordList(data)),
+    editWordList: data => dispatch(editWordList(data)),
   };
 };
 

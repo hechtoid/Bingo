@@ -15,7 +15,7 @@ router.get('/user/:user_id',
         .sort({ date: -1 })
         .then(wordlists => res.json(wordlists))
         .catch(err =>
-            res.status(404).json({ nowordlistsfound: 'No WordLists found on that user' }
+            res.status(404).json({ nowordlistsfound: 'No WordLists found forthat user' }
         )
     );
 });
@@ -26,7 +26,10 @@ router.get('/:list_id',
     // passport.authenticate('jwt', { session: false }),    
     (req, res) => {
       WordList.findById(req.params.list_id)
-        .then( wordlist => res.json(wordlist));
+        .then( wordlist => res.json(wordlist))
+        .catch(err =>
+            res.status(404).json({ nowordlistsfound: 'No WordLists found by that id' })
+        )
     }
 )
 
@@ -36,10 +39,31 @@ router.post('/',
       const newWordList = new WordList({
         name: req.body.name,
         unlisted: req.body.unlisted,
-	      words: req.body.words,
+	    words: req.body.words,
         user: req.user.id
       });
-      newWordList.save().then(wordlist => res.json(wordlist));
+      newWordList.save()
+        .then(wordlist => res.json(wordlist))
+        .catch(err=> res.status(500).json(err))
+    }
+);
+
+router.put('/',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        WordList.findById(req.body._id)
+            .then( wordlist => {
+                wordlist.name = req.body.name
+                wordlist.unlisted = req.body.unlisted
+                wordlist.words = req.body.words
+                wordlist.user = req.user.id
+                wordlist.save()
+                    .then(wordlist => res.json(wordlist))
+                    .catch(err=> res.status(500).json(err))
+            })
+            .catch(err =>
+                res.status(404).json({ nowordlistsfound: 'No WordLists found by that id' })
+            )
     }
 );
 

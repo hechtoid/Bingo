@@ -12,6 +12,9 @@ export const getWordList = id => {
 export const postWordList = data => {
   return axios.post('/api/wordlists/', data)
 }
+export const putWordList = data => {
+  return axios.put('/api/wordlists/', data)
+}
 export const deleteWordList = id => {
   return axios.delete(`/api/wordlists/${id}`)
 }

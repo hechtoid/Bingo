@@ -2,6 +2,7 @@
     height: 100%;
     padding: 5px 10px;
     box-sizing: border-box;
+    max-width: 100vw;
 }
 .wordlists > div {
     height: 100%;

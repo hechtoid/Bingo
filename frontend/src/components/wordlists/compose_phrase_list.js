@@ -18,6 +18,7 @@ class ComposePhraseList extends React.Component {
       }
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
+      this.editWordList = this.editWordList.bind(this)
       this.deletePhraseAt = this.deletePhraseAt.bind(this)
       this.editPhraseAt = this.editPhraseAt.bind(this)
   } 
@@ -52,17 +53,24 @@ class ComposePhraseList extends React.Component {
     }
   }
 
-
+  gameResponse(res) {
+    this.props.history.push(
+        { pathname: `/game/${res.wordList.data._id}/${encodeURIComponent(res.wordList.data.name)}`, 
+          list: {words: res.wordList.data.words, name: res.wordList.data.name, _id: res.wordList.data._id} }
+      )
+  }
   saveWordList(e, done) {
     e.preventDefault()
     if (this.state.words.length >= 3) {
       this.props.saveWordList(this.state)
-        .then(res => {
-          this.props.history.push(
-            { pathname: `/game/${res.wordList.data._id}/${encodeURIComponent(this.state.name)}`, 
-              list: {words: this.state.words, name: this.state.name, _id: 'new'} }
-          )
-        })
+        .then(res => this.gameResponse(res))
+    }
+  }
+  editWordList(e, done) {
+    e.preventDefault()
+    if (this.state.words.length >= 3) {
+      this.props.editWordList(this.state)
+        .then(res => this.gameResponse(res))
     }
   }
   handleSubmit(e) {
@@ -150,10 +158,10 @@ class ComposePhraseList extends React.Component {
           className={ this.state.words.length >= 4
             ? "save-button"
             : "save-button-disabled" } 
-          onClick={this.saveWordList}
+          onClick={ this.state._id ? this.editWordList : this.saveWordList }
           title="SAVE"
         >
-          SAVE
+          { this.state._id ? "UPDATE" : "SAVE" }
         </div>
         <div 
           className={ this.state.words.length >= 24 
