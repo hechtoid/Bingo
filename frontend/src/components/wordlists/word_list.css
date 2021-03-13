@@ -123,7 +123,10 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    transition: 1s;
+    transition: 0.7s;
+}
+.wordlists .delete div:hover {
+    color: black;
 }
 .wordlists .confirm {
     color: white;
@@ -137,7 +140,6 @@
 }
 .wordlists .delete .question {
     color: red;
-    padding: 3px 5px;
     width: 100%;
 }
 .zero {
@@ -292,6 +294,7 @@ ul li button {
     height: 33px;
     width: 70px;
     margin-right: 10px;
+    flex: 0 0 0;
 }
 .phrase li > div {
     width: 100%;
