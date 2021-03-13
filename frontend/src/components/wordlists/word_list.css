@@ -103,12 +103,8 @@
     display: flex;
     justify-content: center;
 }
-.wordlists .delete div {
-    display: flex;
-    justify-content: center;
-}
 .wordlists .delete {
-    color: red;
+    color: transparent;
     font-weight: 900;
     font-family: sans-serif;
     border: 2px solid black;
@@ -116,24 +112,37 @@
     margin: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 60%;
+    height: 30px;
     cursor: pointer;
+    overflow: hidden;
+}
+.wordlists .delete div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: 1s;
 }
 .wordlists .confirm {
     color: white;
     background-color: red;
-    width: 60% !important;
-    text-align: center;
+    width: 60%;
 }
 .wordlists .cancel {
     color: white;
-    background-color: green;
-    width: 40% !important;
-    text-align: center;
+    background-color: #2D8CFF;
+    width: 40%;
 }
-.wordlists .delete div {
+.wordlists .delete .question {
+    color: red;
     padding: 3px 5px;
     width: 100%;
+}
+.zero {
+    width: 0;
+    visibility: hidden;
 }
 .new-wordlist {
     height: 100%;
@@ -288,5 +297,5 @@ button div {
     align-items: center;
 }
 .phrase li input {
-    min-width: 300%;
+    min-width: 220%;
 }
