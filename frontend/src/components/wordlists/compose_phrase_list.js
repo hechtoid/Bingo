@@ -19,6 +19,7 @@ class ComposePhraseList extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this)
       this.saveWordList = this.saveWordList.bind(this)
       this.deletePhraseAt = this.deletePhraseAt.bind(this)
+      this.editPhraseAt = this.editPhraseAt.bind(this)
   } 
   selectID(e) { e.target.select()}
   
@@ -73,7 +74,15 @@ class ComposePhraseList extends React.Component {
       e.target[0].value = ''
     }
   }
-
+  editPhraseAt(idx, str) {
+    return e => {
+      let words = this.state.words
+      words[idx] = str
+      this.setState({
+        words
+      })
+    }
+  }
   deletePhraseAt(idx) {
     return e => {
       let words = this.state.words
@@ -95,7 +104,17 @@ class ComposePhraseList extends React.Component {
   }
 
   render() {
-    let words = this.state.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} delete={this.deletePhraseAt(idx)}/> )
+    let words = this.state.words.map( (phrase,idx) => {
+        return (
+            <Phrase 
+                phrase={phrase} 
+                delete={this.deletePhraseAt}   
+                edit={this.editPhraseAt}
+                idx={idx} 
+                key={idx} 
+            />
+        )
+    } )
     let gameLink = this.state.words.length===0 
                 ? this.props.location.pathname 
                   : this.state._id 

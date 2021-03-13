@@ -230,9 +230,15 @@ ul div li:hover {
 ul li button {
     margin: 0 5px 3px 0;
     cursor: pointer;
+    height: 33px;
+    width: 70px;
+    margin-right: 10px;
 }
 button div {
     margin: 3px;
+}
+.new-wordlist button .pencil {
+    font-size: 18px;
 }
 .new-wordlist form {
     display: flex;
