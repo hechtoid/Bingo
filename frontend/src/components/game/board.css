@@ -170,6 +170,7 @@
     .game > div:first-child {
         margin-top: 150px;   
         transition: 0.4s;
+        margin-left: 0;
     }
     .game .play {
         font-size: 36px;
