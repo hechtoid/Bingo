@@ -89,7 +89,7 @@ class Game extends React.Component {
     }
 render() {
     let phrases = this.phraseLister()
-    let linkList = {pathname: `/wordlists/${this.state._id}/${encodeURIComponent(this.state.name)}`, list: {words: this.state.phrases, name: this.state.name, _id: this.state._id}} 
+    let linkList = {pathname: `/wordlists/${this.state._id}/${encodeURIComponent(this.state.name)}`, list: {words: this.state.phrases, name: this.state.name, }} 
     return (
         <div className="games">
             <Board 
