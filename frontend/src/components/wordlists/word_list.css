@@ -86,8 +86,9 @@
     overflow-y:auto;
 }
     
-.wordlists ul li{
-    margin: 5px 10px;
+.wordlists ul li {
+    margin: 10px 10px;
+    padding-bottom: 5px;
 }
 .wordlists ul li div{
     display: flex;
