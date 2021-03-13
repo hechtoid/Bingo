@@ -27,6 +27,7 @@
     padding: 20px; 
     margin-top: 50px;
     user-select: none;
+    transition: 0.4s;
 }
 .game > div:nth-child(2) {
     display: flex;
@@ -170,9 +171,14 @@
     .game > div:first-child {
         margin-top: 150px;   
         transition: 0.4s;
-        margin-left: 0;
+        margin-left: 50px;
     }
     .game .play {
+        font-size: 36px;
+        padding: 10px;
+        transition: 0.4s;
+    }
+    .game .win {
         font-size: 36px;
         padding: 10px;
         transition: 0.4s;
