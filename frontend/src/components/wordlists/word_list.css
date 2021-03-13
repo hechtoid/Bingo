@@ -249,25 +249,7 @@
         transition: 0.4s;
     }
 }
-ul li {
-    margin: 5px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    border-bottom: 3px solid lightgray;
-}
-ul div li:hover {
-    border-bottom: 3px solid #2D8CFF;
-}
 
-ul li button {
-    margin: 0 5px 3px 0;
-    cursor: pointer;
-    height: 33px;
-    width: 70px;
-    margin-right: 10px;
-}
 button div {
     margin: 3px;
 }
@@ -291,11 +273,36 @@ button div {
     width: 500px;
     padding: 5px 15px;
 }
+
+ul li {
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    border-bottom: 3px solid lightgray;
+}
+ul div li:hover {
+    border-bottom: 3px solid #2D8CFF;
+}
+
+ul li button {
+    margin: 0 5px 3px 0;
+    cursor: pointer;
+    height: 33px;
+    width: 70px;
+    margin-right: 10px;
+}
 .phrase li > div {
     width: 100%;
     display: flex;
     align-items: center;
 }
+.phrase li form {
+    width: 80%;
+    margin-right: 20px;
+}
 .phrase li input {
-    min-width: 220%;
+    min-width: 100%;
+    margin: 0 0 5px 0;
 }
