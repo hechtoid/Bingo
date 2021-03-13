@@ -1,8 +1,8 @@
 import React, {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Phrase from './subcomponents/phrase'
-import DeleteSafe from './subcomponents/deletesafe'
+import Phrase from './listcomponents/phrase'
+import DeleteSafe from './listcomponents/deletesafe'
 
 import './word_list.css'
 
