@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.4s;
 }
 .game .play {
     border: 10px solid lightgray;
@@ -18,6 +19,7 @@
     color: lightgray;
     margin-top: 50px;
     user-select: none;
+    transition: 0.4s;
 }
 .game .win {
     border: 10px solid green;
@@ -41,6 +43,7 @@
     height: 100px;
     min-height: 100px;
     width: 100%;
+    transition: 0.4s;
 }
 .game .thead > div{
     max-height: 100px;
@@ -52,15 +55,18 @@
     text-align: center;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: 0.4s;
 }
 .game .thead button {
     max-height: 80px;
     height: 80px;
     max-width: 80px;
     width: 80px;
+    transition: 0.4s;
 }
 .game button .pencil {
     font-size: 42px;
+    transition: 0.4s;
 }
 .game > div:last-child {
     width: 200px;
@@ -68,6 +74,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.4s;
 }
 
 .game > div:last-child button {
@@ -160,6 +167,36 @@
 }
 
 @media screen and (max-width: 1600px) {
+    .game > div:first-child {
+        margin-top: 150px;   
+        transition: 0.4s;
+    }
+    .game .play {
+        font-size: 36px;
+        padding: 10px;
+        transition: 0.4s;
+    }
+    .game .thead {
+        max-height: 50px;
+        min-height: 50px;
+        transition: 0.4s;
+    }
+    .game .thead > div{
+        font-size: 23px;
+        max-height: 50px;
+        min-height: 50px;
+        transition: 0.4s;
+    }
+    .game .thead button {
+        height: 50px;
+        width: 50px;
+        transition: 0.4s;
+    }
+    .game button .pencil {
+        font-size: 27px;
+        margin-left: -7px;
+        transition: 0.4s;
+    }
     .game table {
         border: 3px solid black;
         padding: 1px;
@@ -167,8 +204,6 @@
         font-family: sans-serif;
         border-spacing: 3px;
         transition: 0.4s;
-    }
-    .game table td {
     }
     .game table td div {
         font-size: 14px;
