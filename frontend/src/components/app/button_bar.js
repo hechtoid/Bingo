@@ -25,13 +25,12 @@ return (
                 🏡
             </span>
         </button> 
-        { props.loggedIn
-        ? <button title="Sign-out" onClick={()=>props.logout()}>
-            <span title="Sign-out" aria-label="Sign-out" role="img">
-                🚪
-            </span>
-        </button>
-        : "" }
+        { props.loggedIn &&
+            <button title="Sign-out" onClick={()=>props.logout()}>
+                <span title="Sign-out" aria-label="Sign-out" role="img">
+                    🚪
+                </span>
+            </button> }
     </div>
     <a href="https://github.com/hechtoid/Bingo" title="View Source on GitHub" target="_blank" rel="noopener noreferrer">
         <img alt="GitHub Logo" src="/github.png" />

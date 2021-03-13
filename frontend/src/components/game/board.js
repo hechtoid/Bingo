@@ -110,7 +110,7 @@ return (
         </div> 
         <div>
             <div className="thead">
-                { props.link ? 
+                { props.link && 
                     <Link to={props.link}>
                         <button title="Edit List">
                             <div>
@@ -119,8 +119,7 @@ return (
                                 </span>
                             </div>
                         </button>
-                    </Link>
-                    : "" }
+                    </Link> }
                 <div>
                     {props.name}
                 </div>   

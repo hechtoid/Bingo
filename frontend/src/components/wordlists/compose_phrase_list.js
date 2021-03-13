@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import Phrase from './phrase'
+import Phrase from './subcomponents/phrase'
 
 import { getWordList } from '../../util/word_list_api_util';
 import { hotDate } from '../../util/date_util';

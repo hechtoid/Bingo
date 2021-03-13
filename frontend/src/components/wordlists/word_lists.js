@@ -1,7 +1,8 @@
 import React, {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Phrase from './phrase'
+import Phrase from './subcomponents/phrase'
+import DeleteSafe from './subcomponents/deletesafe'
 
 import './word_list.css'
 
@@ -62,8 +63,8 @@ return (
                         <div>
                             { list.words.map( (phrase,idx) => <Phrase phrase={phrase} key={idx} /> ) }
                         </div>
-                        <div className="delete" onClick={() => props.removeWordList(list._id)}>
-                            DELETE LIST
+                        <div>
+                            <DeleteSafe delete={() => props.removeWordList(list._id)}/>
                         </div>
                     </ul>
                 )
