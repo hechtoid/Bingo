@@ -6,9 +6,9 @@ const Phrase = props => {
         <li>
           <div>
           { props.edit ?
-            <button title="Edit List" onClick={props.edit(props.idx, 'edit')}>
+            <button title="Edit Phrase" onClick={props.edit(props.idx, 'edit')}>
                             <div>
-                                <span className="pencil" title="Edit List" aria-label="Edit List" role="img">
+                                <span className="pencil" title="Edit Phrase" aria-label="Edit Phrase" role="img">
                                     ✏️
                                 </span>
                             </div>
