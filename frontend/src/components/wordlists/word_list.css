@@ -132,11 +132,13 @@
     color: white;
     background-color: red;
     width: 60%;
+    border-right: 1px solid black;
 }
 .wordlists .cancel {
     color: white;
     background-color: #2D8CFF;
     width: 40%;
+    border-left: 1px solid black;
 }
 .wordlists .delete .question {
     color: red;
@@ -144,6 +146,8 @@
 }
 .zero {
     width: 0;
+}
+.zero span {
     visibility: hidden;
 }
 .new-wordlist {

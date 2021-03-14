@@ -7,9 +7,21 @@ const DeleteSafe = props => {
 return (
     <div className="delete" onClick={()=>toggleToggleState(!toggleState)}>
 
-        <div className={toggleState?"confirm":"zero"} onClick={props.delete}>CONFIRM</div>
-        <div className={toggleState?"zero":"question"}>DELETE&nbsp;LIST</div>
-        <div className={toggleState?"cancel":"zero"} onClick={()=>toggleToggleState(!toggleState)}>CANCEL</div>
+        <div className={toggleState?"confirm":"zero"} onClick={props.delete}>
+            <span>
+                CONFIRM
+            </span>
+        </div>
+        <div className={toggleState?"zero":"question"}>
+            <span>
+                DELETE&nbsp;LIST
+            </span>
+        </div>
+        <div className={toggleState?"cancel":"zero"} onClick={()=>toggleToggleState(!toggleState)}>
+            <span>
+                CANCEL
+            </span>
+        </div>
     </div>
 )    
 }
