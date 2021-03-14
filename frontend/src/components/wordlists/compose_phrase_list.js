@@ -177,7 +177,7 @@ class ComposePhraseList extends React.Component {
               Phrases
             </div>
             <input type="text" placeholder="Add Phrase"></input>
-            <input type="submit" value="Add to List" />
+            <input type="submit" value="Add to List" title="Add to List" />
           </div>
         </form>        
         <ul className="wordlist">
