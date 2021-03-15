@@ -52,7 +52,7 @@ return (
                 </>
                 : props.phrase }  
             </div>
-            { props.delete &&
+            { props.delete && !editable &&
             <button title="Delete Phrase" onClick={props.delete(props.idx)}>
                 <div>
                     <span title="Delete Phrase" aria-label="Delete Phrase" role="img"> 
