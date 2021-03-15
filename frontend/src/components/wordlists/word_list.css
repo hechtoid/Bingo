@@ -218,6 +218,7 @@
 .new-wordlist .title label {
     display: flex;
     align-items: center;
+    font-family: sans-serif;
 }
 .new-wordlist div > input {
     font-size: 24px;
@@ -229,7 +230,7 @@
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    font-family: sans-serif;
 }
 .new-wordlist form div input {
     font-size: 18px;
@@ -287,6 +288,7 @@ ul li {
     align-items: center;
     width: 90%;
     border-bottom: 3px solid lightgray;
+    font-family: sans-serif;
 }
 ul div li:hover {
     border-bottom: 3px solid #2D8CFF;
