@@ -7,7 +7,7 @@ const passport = require('passport');
 const path = require('path');
 const users = require("./routes/api/users");
 const wordlists = require("./routes/api/wordlists");
-
+console.log(process.env);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
