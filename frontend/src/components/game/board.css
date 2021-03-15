@@ -47,16 +47,18 @@
     transition: 0.4s;
 }
 .game .thead > div{
-    max-height: 100px;
-    min-height: 100px;
+    max-height: 80px;
+    min-height: 80px;
     max-width: 800px;
     min-width: 80px;
-    font-size: 36px;
-    text-decoration: underline;
+    font-size: 33px;
     text-align: center;
     overflow-y: auto;
     overflow-x: hidden;
     transition: 0.4s;
+    font-weight: 900;
+    padding: 10px 5px 5px 5px;;
+    font-family: sans-serif;
 }
 .game .thead button {
     max-height: 80px;
