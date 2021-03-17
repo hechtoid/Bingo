@@ -88,8 +88,7 @@
 }
     
 .wordlists ul li {
-    margin: 10px 10px;
-    padding-bottom: 5px;
+    padding: 5px 10px;
 }
 .wordlists ul li div{
     display: flex;
@@ -287,11 +286,7 @@ ul li {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    /* border-bottom: 3px solid lightgray; */
     font-family: sans-serif;
-}
-ul div li:hover {
-    /* border-bottom: 3px solid #2D8CFF; */
 }
 
 ul li button {
