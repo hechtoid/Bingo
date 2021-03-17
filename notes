@@ -1,8 +1,9 @@
 add ReadMe
 
-change UPDATE button back to SAVE or CLONE when saving existing list to different account
+DONE change UPDATE button back to SAVE or CLONE when saving existing list to different account
 CHECK FOR ALL STATES
 
 add filter/search for lists
 
-copy to clipboard on click of phrase or its border?
+DONE copy to clipboard on click of phrase or its border?
+BUT show ui change on successful copy

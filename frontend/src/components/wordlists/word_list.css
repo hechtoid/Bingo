@@ -282,16 +282,16 @@ button div {
 }
 
 ul li {
-    margin: 5px auto;
+    margin: 0px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    border-bottom: 3px solid lightgray;
+    /* border-bottom: 3px solid lightgray; */
     font-family: sans-serif;
 }
 ul div li:hover {
-    border-bottom: 3px solid #2D8CFF;
+    /* border-bottom: 3px solid #2D8CFF; */
 }
 
 ul li button {
@@ -314,4 +314,18 @@ ul li button {
 .phrase li input {
     min-width: 100%;
     margin: 0 0 5px 0;
+}
+.phrase > div:last-child {
+    border-bottom: 5px solid lightgray;
+    border-top: 3px solid transparent;
+    border-radius: 25px;
+    width: 80%;
+    margin: 1px auto 5px auto;
+    transition: 0.12;
+}
+.phrase > div:last-child:hover {
+    border-bottom: 5px solid #2D8CFF;
+    border-top: 3px solid #2D8CFF;
+    transition: 0.1s;
+    cursor: pointer;
 }

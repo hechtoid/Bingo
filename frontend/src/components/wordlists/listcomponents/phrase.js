@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const selectID = (e) => { e.target.select()}
 
@@ -61,6 +62,9 @@ return (
                 </div>
             </button> }
         </li>
+        <CopyToClipboard text={props.phrase}>
+            <div title="Click to Copy"></div>
+        </CopyToClipboard>
     </div>
 )
 }
