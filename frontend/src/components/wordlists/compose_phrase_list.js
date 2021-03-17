@@ -156,10 +156,14 @@ class ComposePhraseList extends React.Component {
           className={ this.state.words.length >= 4
             ? "save-button"
             : "save-button-disabled" } 
-          onClick={ this.state._id ? this.editWordList : this.saveWordList }
-          title="SAVE"
+          onClick={ this.state._id && this.state.user === this.props.currentUser.id ? this.editWordList : this.saveWordList }
+          title="Persist This List"
         >
-          { this.state._id ? "UPDATE" : "SAVE" }
+          { !this.state._id 
+            ? "SAVE" 
+            : this.state.user === this.props.currentUser.id
+            ? "UPDATE" 
+            : "CLONE" }
         </div>
         <div 
           className={ this.state.words.length >= 24 

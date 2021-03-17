@@ -27,6 +27,7 @@ class Game extends React.Component {
             this.setState({
                 phrases: shuffle(this.props.location.list.words),
                 name: this.props.location.list.name,
+                user: this.props.location.list.user,
                 _id: this.props.location.list._id
             }) 
         } else if (this.props.match.params.id) { 
@@ -35,6 +36,7 @@ class Game extends React.Component {
                 this.setState({
                     phrases: shuffle(res.data.words),
                     name: res.data.name,
+                    user: res.data.user,
                     _id: res.data._id
                 }) 
             } )
@@ -93,6 +95,7 @@ render() {
                     list: {
                         words: this.state.phrases, 
                         name: this.state.name, 
+                        user: this.state.user,
                         _id: this.state._id === "new" ? null : this.state._id} } 
     return (
         <div className="games">
