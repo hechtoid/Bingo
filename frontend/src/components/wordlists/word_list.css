@@ -310,17 +310,23 @@ ul li button {
     min-width: 100%;
     margin: 0 0 5px 0;
 }
-.phrase > div:last-child {
-    border-bottom: 5px solid lightgray;
+.copier {
     border-top: 3px solid transparent;
+    border-bottom: 5px solid lightgray;
     border-radius: 25px;
     width: 80%;
     margin: 1px auto 5px auto;
-    transition: 0.12;
 }
-.phrase > div:last-child:hover {
-    border-bottom: 5px solid #2D8CFF;
+.copier:hover {
     border-top: 3px solid #2D8CFF;
-    transition: 0.1s;
+    border-bottom: 5px solid #2D8CFF;
+    transition: 0.2s;
     cursor: pointer;
+}
+.copied {
+    border-top: 3px solid #CDFFAA;  
+    border-bottom: 5px solid #CDFFAA;
+    border-radius: 25px;
+    width: 80%;
+    margin: 1px auto 5px auto; 
 }

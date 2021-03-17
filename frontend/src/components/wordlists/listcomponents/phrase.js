@@ -6,6 +6,7 @@ const selectID = (e) => { e.target.select()}
 
 const Phrase = props => {
     const [editable, setEditable] = useState(false)
+    const [copied, setCopied] = useState(false)
     const inputRef = React.createRef();
     const handleEditToggle = (e) => {
         if (editable) {
@@ -20,6 +21,12 @@ const Phrase = props => {
             props.edit(props.idx, inputRef.current.value)
         }
         setEditable(false)
+    }
+    const onCopied = (e) => {
+        setCopied(true)
+        setTimeout(() => {
+            setCopied(false)
+        }, 1234);
     }
 return (
     <div className="phrase">
@@ -62,8 +69,8 @@ return (
                 </div>
             </button> }
         </li>
-        <CopyToClipboard text={props.phrase}>
-            <div title="Click to Copy"></div>
+        <CopyToClipboard text={props.phrase} onCopy={onCopied}>
+            <div className={copied?"copied":"copier"} title="Click to Copy"></div>
         </CopyToClipboard>
     </div>
 )
