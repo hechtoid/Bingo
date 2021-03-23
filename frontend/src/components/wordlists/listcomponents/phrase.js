@@ -26,7 +26,7 @@ const Phrase = props => {
         setCopied(true)
         setTimeout(() => {
             setCopied(false)
-        }, 1234);
+        }, 3333);
     }
 return (
     <div className="phrase">
@@ -70,7 +70,7 @@ return (
             </button> }
         </li>
         <CopyToClipboard text={props.phrase} onCopy={onCopied}>
-            <div className={copied?"copied":"copier"} title="Click to Copy"></div>
+            <div className={copied?"copied":"copier"} title={copied?"Copied!":"Click to Copy"}></div>
         </CopyToClipboard>
     </div>
 )
